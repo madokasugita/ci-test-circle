@@ -93,7 +93,7 @@ abstract class Controller
      */
     protected function forward404()
     {
-    	return $this->render(array(), "404error");
+        return $this->render(array(), "404error")
 
         throw new HttpNotFoundException('Forwarded 404 page from '
             . $this->controller_name . '/' . $this->action_name);
