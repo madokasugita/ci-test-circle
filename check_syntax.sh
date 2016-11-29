@@ -10,18 +10,16 @@ fi
 
 
 if [ -n "$CI_PULL_REQUEST" ]; then
-    RESULT=`git diff --name-only origin/develop \
+    WARN=`git diff --name-only origin/develop \
         | grep -e '.php$' \
-        | xargs vendor/bin/phpcs -n --standard=PSR2 --report=checkstyle \
-        | bundle exec checkstyle_filter-git diff origin/develop \
-        | bundle exec saddler report \
-        --require saddler/reporter/github \
-        --reporter Saddler::Reporter::Github::PullRequestReviewComment`
+        | xargs vendor/bin/phpcs -n --standard=PSR2 --report=checkstyle`
 
-    if [ -n "$RESULT" ]; then
-        echo ""
-        echo "An error has been detected,this following:"
-	echo "$RESULT"
+    if [ -n "$WARN" ]; then
+	echo "$WARN" \
+            | bundle exec checkstyle_filter-git diff origin/develop \
+            | bundle exec saddler report \
+            --require saddler/reporter/github \
+            --reporter Saddler::Reporter::Github::PullRequestReviewComment
 	exit 1
     fi
 fi
