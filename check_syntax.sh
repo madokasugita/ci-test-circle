@@ -16,7 +16,7 @@ if [ -n "$CI_PULL_REQUEST" ]; then
         | bundle exec checkstyle_filter-git diff origin/develop`
 
     if [ -n "$WARN" ]; then
-	echo "$RESULT" \
+	echo "$WARN" \
 	| bundle exec saddler report \
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
