@@ -14,8 +14,9 @@ if [ -n "$CI_PULL_REQUEST" ]; then
         | grep -e '.php$' \
         | xargs vendor/bin/phpcs -n --standard=PSR2 --report=checkstyle \
         | bundle exec checkstyle_filter-git diff origin/develop`
+    detected=$(echo "$WARN" | grep "error")
 
-    if [ -n "$WARN" ]; then
+    if [ -n "$detected" ]; then
 	git diff --name-only origin/develop \
         | grep -e '.php$' \
 	| xargs vendor/bin/phpcs -n --standard=PSR2 --report=checkstyle \
