@@ -104,8 +104,7 @@ abstract class Controller
      *
      * @return string "Hello"
      */
-    protected function hello()
-    {
+    protected function hello(){
         return "Hello";
     }
 
