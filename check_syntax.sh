@@ -20,7 +20,7 @@ if [ -n "$CI_PULL_REQUEST" ]; then
 	echo "$WARN" \
             | bundle exec saddler report \
             --require saddler/reporter/github \
-            --reporter Saddler::Reporter::Github::PullRequestReviewComment
+            --reporter Saddler::Reporter::Github::PullRequestComment
 	echo "$WARN"
 	exit 1
     fi
