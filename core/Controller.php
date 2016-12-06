@@ -91,7 +91,8 @@ abstract class Controller
      *
      * @throws HttpNotFoundException
      */
-    protected function forward404(){
+    protected function forward404()
+    {
         return $this->render(array(), "404error");
 
         throw new HttpNotFoundException('Forwarded 404 page from '
@@ -113,8 +114,7 @@ abstract class Controller
      *
      * @param string $url
      */
-    protected function redirect($url)
-    {
+    protected function redirect($url){
         if (!preg_match('#https?://#', $url)) {
             $protocol = $this->request->isSsl() ? 'https://' : 'http://';
             $host = $this->request->getHost();
