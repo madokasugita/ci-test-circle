@@ -114,7 +114,8 @@ abstract class Controller
      *
      * @param string $url
      */
-    protected function redirect($url){
+    protected function redirect($url)
+    {
         if (!preg_match('#https?://#', $url)) {
             $protocol = $this->request->isSsl() ? 'https://' : 'http://';
             $host = $this->request->getHost();
