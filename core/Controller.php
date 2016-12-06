@@ -134,8 +134,7 @@ abstract class Controller
      * @param string $form_name
      * @return string $token
      */
-    protected function generateCsrfToken($form_name)
-    {
+    protected function generateCsrfToken($form_name){
         $key = 'csrf_tokens/' . $form_name;
         $tokens = $this->session->get($key, array());
         if (count($tokens) >= 10) {
