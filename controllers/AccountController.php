@@ -44,8 +44,8 @@ class AccountController extends Controller
 
         if (!strlen($user_name)) {
             $errors[] = 'ユーザIDを入力してください';
-        } else if (!preg_match('/^\w{3,20}$/', $user_name)) {
-            $errors[] = 'ユーザIDは半角英数字およびアンダースコアを3 ～ 20 文字以内で入力してください';
+        } else if (!preg_match('/^\w{5,20}$/', $user_name)) {
+            $errors[] = 'ユーザIDは半角英数字およびアンダースコアを5 ～ 20 文字以内で入力してください';
         } else if (!$this->db_manager->get('User')->isUniqueUserName($user_name)) {
             $errors[] = 'ユーザIDは既に使用されています';
         }
