@@ -10,7 +10,7 @@ fi
 
 
 if [ -n "$CI_PULL_REQUEST" ]; then
-    cp -R ~/vendor/wimg/php-compatibility ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
+    cp -R vendor/wimg/php-compatibility vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
     git diff --name-only origin/develop \
         | grep -e '.php$' \
         | xargs vendor/bin/phpcs -n --standard=rules/phpcs_rules.xml --report=checkstyle \
