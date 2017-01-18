@@ -12,4 +12,5 @@
 		</properties>
 	</rule>
 	<rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod" />
+	<rule ref="rulesets/controversial.xml/Superglobals" /> <!-- スーパーグローバル変数の利用箇所を検出する。 -->
 </ruleset>

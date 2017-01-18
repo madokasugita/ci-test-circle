@@ -4,4 +4,8 @@ machine:
     version: 5.6.17
 test:
   pre:
+    - echo "-----start test-----"
     - chmod -x ./check_syntax.sh
+    - ./check_syntax.sh
+  post:
+    - echo "-----end test-----"

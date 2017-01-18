@@ -1,6 +1,9 @@
 {
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*",
-    "phpmd/phpmd" : "*"
-  }
+    "phpmd/phpmd" : "*",
+    "wimg/php-compatibility": "*",
+    "simplyadmire/composer-plugins" : "@dev"
+  },
+"prefer-stable" : true
 }
