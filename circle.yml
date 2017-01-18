@@ -5,7 +5,7 @@ machine:
 test:
   pre:
     - echo "-----start test-----"
-    - chmod -x ./check_syntax.sh
+    - chmod a+x ./check_syntax.sh
     - ./check_syntax.sh
   post:
     - echo "-----end test-----"
