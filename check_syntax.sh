@@ -8,7 +8,6 @@ echo "********************"
 echo "* repository :$CIRCLE_PROJECT_REPONAME"
 echo "* branch     :$CIRCLE_BRANCH"
 echo "* github url :$CIRCLE_COMPARE_URL"
-echo "* user       :$CIRCLE_PROJECT_USENAME"
 echo "********************"
 
 LIST=`git diff --name-only origin/develop | grep -e '.php$'`
