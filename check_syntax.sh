@@ -12,9 +12,12 @@ echo "********************"
 
 LIST=`git diff --name-only origin/develop | grep -e '.php$'`
 
+echo "********************"
+echo " condition diff"
+echo "********************"
 if [ -z "$LIST" ]; then
     echo "********************"
-    echo "PHP file not changed."
+    echo " PHP file not changed."
     echo "********************"
     exit 0
 fi
@@ -40,10 +43,6 @@ git diff --name-only origin/develop \
 git diff --name-only origin/develop \
     | grep -e '.php$' \
     | xargs vendor/bin/phpmd xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
-    # | bundle exec checkstyle_filter-git diff origin/develop \
-    # | bundle exec saddler report \
-    # --require saddler/reporter/github \
-    # --reporter Saddler::Reporter::Github::PullRequestReviewComment
 set -e
 
 echo "********************"
