@@ -40,9 +40,12 @@ git diff --name-only origin/develop \
     | grep -e '.php$' \
     | xargs vendor/bin/phpcs -n --standard=rules/phpcs_rules.xml --report=checkstyle --report-file=phpcs_result.xml
     
-git diff --name-only origin/develop \
-    | grep -e '.php$' \
-    | xargs vendor/bin/phpmd xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
+vendor/bin/phpmd core xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
+
+# git diff --name-only origin/develop \
+#     | grep -e '.php$' \
+#     | xargs vendor/bin/phpmd xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
+#     vendor/bin/phpmd app xml phpmd.ruleset.xml --reportfile phpmd.result.xml
 set -e
 
 echo "********************"
