@@ -42,10 +42,10 @@ git diff --name-only origin/develop \
     
 vendor/bin/phpmd core xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
 
-# git diff --name-only origin/develop \
-#     | grep -e '.php$' \
-#     | xargs vendor/bin/phpmd xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
-#     vendor/bin/phpmd app xml phpmd.ruleset.xml --reportfile phpmd.result.xml
+git diff --name-only origin/develop \
+    | grep -e '.php$' \
+    | xargs vendor/bin/phpmd xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
+    vendor/bin/phpmd app xml phpmd.ruleset.xml --reportfile phpmd.result.xml
 set -e
 
 echo "********************"
@@ -77,7 +77,7 @@ echo "********************"
 echo "* PHP CodeSniffer"
 echo "********************"
 cat phpcs_result.xml \
-    | checkstyle_filter-git diff origin/master \
+    | checkstyle_filter-git diff origin/develop \
     | saddler report --require saddler/reporter/github --reporter $REPORTER
 
 echo "********************"
@@ -85,7 +85,7 @@ echo "* PHP Mess Detector"
 echo "********************"
 cat phpmd_result.xml \
     | pmd_translate_checkstyle_format translate \
-    | checkstyle_filter-git diff origin/master \
+    | checkstyle_filter-git diff origin/develop \
     | saddler report --require saddler/reporter/github --reporter $REPORTER
 
 echo "********************"
