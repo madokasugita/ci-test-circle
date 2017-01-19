@@ -5,6 +5,7 @@ machine:
 test:
   pre:
     - echo "-----start test-----"
+  override:
     - chmod a+x ./check_syntax.sh
     - ./check_syntax.sh
   post:
