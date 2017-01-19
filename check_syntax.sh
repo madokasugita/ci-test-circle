@@ -14,10 +14,9 @@ if [ -n "$CI_PULL_REQUEST" ]; then
     echo "START PROCESS: phpcs"
     git diff --name-only origin/develop \
         | grep -e '.php$' \
-        # | xargs vendor/bin/phpcs -n --standard=rules/phpcs_rules.xml --report=checkstyle 
         | xargs vendor/bin/phpcs -n --standard=rules/phpcs_rules.xml --report=checkstyle \
         | bundle exec checkstyle_filter-git diff origin/develop \
-        | bundle exec saddler report 
+        | bundle exec saddler report \
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
     echo "END PROCESS: phpcs"
