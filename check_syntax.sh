@@ -38,11 +38,11 @@ echo "* exec check"
 echo "********************"
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs vendor/bin/phpcs -n --standard=rules/phpcs_rules.xml --report=checkstyle --report-file=phpcs_result.xml
+    | xargs -I{} vendor/bin/phpcs {} -n --standard=rules/phpcs_rules.xml --report=checkstyle --report-file=phpcs_result.xml
     
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs -I{} vendor/bin/phpmd {} xml ./rules/phpmd_rules.xml --reportfile phpmd_result.xml
+    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
 set -e
 
 echo "********************"
@@ -76,6 +76,8 @@ echo "********************"
 cat phpcs_result.xml \
     | checkstyle_filter-git diff origin/develop \
     | saddler report --require saddler/reporter/github --reporter $REPORTER
+    
+cat phpcs_result.xml
 
 echo "********************"
 echo "* PHP Mess Detector"
@@ -84,6 +86,8 @@ cat phpmd_result.xml \
     | pmd_translate_checkstyle_format translate \
     | checkstyle_filter-git diff origin/develop \
     | saddler report --require saddler/reporter/github --reporter $REPORTER
+    
+cat phpmd_result.xml
 
 echo "********************"
 echo "* end   $0"
