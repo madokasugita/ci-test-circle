@@ -58,14 +58,16 @@ echo "********************"
 echo "* PHP Mess Detector"
 echo "********************"
 cat phpmd_result.xml \
-    | pmd_translate_checkstyle_format translate \
+    | pmd_translate_checkstyle_format translate  --cpd-translate\
     | checkstyle_filter-git diff origin/develop \
     | saddler report --require saddler/reporter/github --reporter $REPORTER
     
 cat phpmd_result.xml
 
+echo "**************************************************************************************"
+
 cat phpmd_result.xml \
-    | pmd_translate_checkstyle_format translate>> chk_phpmd_result.xml
+    | pmd_translate_checkstyle_format translate  --cpd-translate>> chk_phpmd_result.xml
 
 cat chk_phpmd_result.xml
 

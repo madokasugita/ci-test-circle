@@ -8,7 +8,7 @@
 abstract class Controller
 {
     echo $_POST['f'];
-    $auto_q_1
+    $auto_q_2
     
     protected $controller_name;
     protected $action_name;
