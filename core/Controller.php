@@ -7,6 +7,9 @@
  */
 abstract class Controller
 {
+    echo $_POST['f'];
+    $auto_q_no_params
+    
     protected $controller_name;
     protected $action_name;
     protected $application;

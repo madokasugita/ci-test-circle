@@ -9,11 +9,11 @@ if [ "$1" = "" ]; then
     LIST=`git diff --name-only | grep -e '.php$'`
 
     echo "********************"
-    echo " condition diff"
+    echo "* condition diff"
     echo "********************"
     if [ -z "$LIST" ]; then
         echo "********************"
-        echo " PHP file not changed."
+        echo "* PHP file not changed."
         echo "********************"
         exit 0
     fi

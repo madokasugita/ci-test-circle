@@ -38,11 +38,12 @@ echo "* exec check"
 echo "********************"
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs -I{} vendor/bin/phpcs {} -n --standard=rules/phpcs_rules.xml --report=checkstyle --report-file=phpcs_result.xml
+    | xargs vendor/bin/phpcs -n --standard=rules/phpcs_rules.xml --report=checkstyle --report-file=phpcs_result.xml
+    # | xargs -I{} vendor/bin/phpcs {} -n --standard=rules/phpcs_rules.xml --report=checkstyle --report-file=phpcs_result.xml
     
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
+    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml>> phpmd_result.xml
 set -e
 
 echo "********************"
