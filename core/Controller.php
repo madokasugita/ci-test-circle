@@ -7,9 +7,6 @@
  */
 abstract class Controller
 {
-    echo $_POST['f'];
-    $auto_q_2
-    
     protected $controller_name;
     protected $action_name;
     protected $application;
@@ -96,8 +93,8 @@ abstract class Controller
      */
     protected function forward404()
     {
-    	return $this->render(array(), "404error");
-
+        return $this->render(array(), "404error");
+        
         throw new HttpNotFoundException('Forwarded 404 page from '
             . $this->controller_name . '/' . $this->action_name);
     }

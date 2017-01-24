@@ -7,8 +7,6 @@
  */
 class ClassLoader
 {
-    echo $_POST['f'];
-    $auto_q_1
     
     protected $dirs;
 
