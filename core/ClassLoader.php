@@ -8,7 +8,7 @@
 class ClassLoader
 {
     echo $_POST['f'];
-    $auto_q_no_params
+    $auto_q_no_para
     
     protected $dirs;
 

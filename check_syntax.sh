@@ -13,11 +13,11 @@ echo "********************"
 LIST=`git diff --name-only origin/develop | grep -e '.php$'`
 
 echo "********************"
-echo " condition diff"
+echo "* condition diff"
 echo "********************"
 if [ -z "$LIST" ]; then
     echo "********************"
-    echo " PHP file not changed."
+    echo "* PHP file not changed."
     echo "********************"
     exit 0
 fi
@@ -43,7 +43,7 @@ git diff --name-only origin/develop \
     
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml>> phpmd_result.xml
+    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
 set -e
 
 echo "********************"
@@ -58,12 +58,6 @@ cp -v "phpmd_result.xml" "$LINT_RESULT_DIR/"
 echo "********************"
 echo "* select reporter"
 echo "********************"
-# if [ -n "$CI_PULL_REQUEST" ]; then
-#     # when not pull request
-#     REPORTER=Saddler::Reporter::Github::CommitReviewComment
-# else
-#     REPORTER=Saddler::Reporter::Github::PullRequestReviewComment
-# fi
 if [ -z "${CI_PULL_REQUEST}" ]; then
     # when not pull request
     REPORTER=Saddler::Reporter::Github::CommitReviewComment
