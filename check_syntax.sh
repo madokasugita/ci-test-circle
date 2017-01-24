@@ -76,10 +76,10 @@ cat phpcs_result.xml
 echo "********************"
 echo "* PHP Mess Detector"
 echo "********************"
-cat phpmd_result.xml \ 
-    | bundle exec pmd_translate_checkstyle_format translate \
-    | bundle exec checkstyle_filter-git diff origin/develop \
-    | bundle exec saddler report --require saddler/reporter/github --reporter $REPORTER
+cat phpmd_result.xml \
+    | pmd_translate_checkstyle_format translate \
+    | checkstyle_filter-git diff origin/develop \
+    | saddler report --require saddler/reporter/github --reporter $REPORTER
     
 cat phpmd_result.xml
 
