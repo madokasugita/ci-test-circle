@@ -11,6 +11,6 @@
 			<property value="15" name="reportLevel"></property>
 		</properties>
 	</rule>
-	<rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod" />
+	<rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod" /> <!-- 親ルールを指定すると含まれる子ルール全てが適用される -->
 	<rule ref="rulesets/controversial.xml/Superglobals" /> <!-- スーパーグローバル変数の利用箇所を検出する。 -->
 </ruleset>

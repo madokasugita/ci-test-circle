@@ -6,7 +6,7 @@ test:
   pre:
     - echo "-----start test-----"
   override:
-    - chmod a+x ./check_syntax.sh
-    - ./check_syntax.sh
+    - chmod a+x ./check_syntax_md.sh
+    - ./check_syntax_md.sh
   post:
     - echo "-----end test-----"
