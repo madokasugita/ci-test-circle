@@ -23,11 +23,6 @@ if [ -z "$LIST" ]; then
 fi
 
 echo "********************"
-echo "* install gems"
-echo "********************"
-gem install --no-document checkstyle_filter-git saddler saddler-reporter-github pmd_translate_checkstyle_format
-
-echo "********************"
 echo "* copy PHPCompatibility"
 echo "********************"
 cp -R vendor/wimg/php-compatibility vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
@@ -58,9 +53,6 @@ echo "********************"
 echo "* select reporter"
 echo "********************"
 if [ -z "${CI_PULL_REQUEST}" ]; then
-    # when not pull request
-    REPORTER=Saddler::Reporter::Github::CommitReviewComment
-else
     REPORTER=Saddler::Reporter::Github::PullRequestReviewComment
 fi
 
