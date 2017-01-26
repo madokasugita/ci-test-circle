@@ -49,32 +49,30 @@ mkdir "$LINT_RESULT_DIR"
 cp -v "phpcs_result.xml" "$LINT_RESULT_DIR/"
 cp -v "phpmd_result.xml" "$LINT_RESULT_DIR/"
 
-echo "********************"
-echo "* select reporter"
-echo "********************"
 if [ -z "${CI_PULL_REQUEST}" ]; then
-    REPORTER=Saddler::Reporter::Github::PullRequestReviewComment
+    echo "********************"
+    echo "* PHP CodeSniffer"
+    echo "********************"
+    cat phpcs_result.xml \
+        | bundle exec checkstyle_filter-git diff origin/develop \
+        | bundle exec saddler report \
+        --require saddler/reporter/github \
+        --reporter Saddler::Reporter::Github::PullRequestReviewComment
+    
+    cat phpcs_result.xml
+    
+    echo "********************"
+    echo "* PHP Mess Detector"
+    echo "********************"
+    cat phpmd_result.xml \
+        | bundle exec pmd_translate_checkstyle_format translate \
+        | bundle exec checkstyle_filter-git diff origin/develop \
+        | bundle exec saddler report \
+        --require saddler/reporter/github \
+        --reporter Saddler::Reporter::Github::PullRequestReviewComment
+    
+    cat phpmd_result.xml
 fi
-
-echo "********************"
-echo "* PHP CodeSniffer"
-echo "********************"
-cat phpcs_result.xml \
-    | bundle exec checkstyle_filter-git diff origin/develop \
-    | bundle exec saddler report --require saddler/reporter/github --reporter $REPORTER
-    
-cat phpcs_result.xml
-
-echo "********************"
-echo "* PHP Mess Detector"
-echo "********************"
-cat phpmd_result.xml \
-    | bundle exec pmd_translate_checkstyle_format translate \
-    | bundle exec checkstyle_filter-git diff origin/develop \
-    | bundle exec saddler report --require saddler/reporter/github --reporter $REPORTER
-    
-cat phpmd_result.xml
-
 echo "********************"
 echo "* end   $0"
 echo "********************"

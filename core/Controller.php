@@ -147,8 +147,7 @@ abstract class Controller
      * @param string $token
      * @return boolean
      */
-    protected function checkCsrfToken($form_name, $token)
-    {
+    protected function checkCsrfToken($form_name, $token){
         $key = 'csrf_tokens/' . $form_name;
         $tokens = $this->session->get($key, array());
 
@@ -158,6 +157,8 @@ abstract class Controller
 
             return true;
         }
+        
+        echo $hogehoge;
 
         return false;
     }
