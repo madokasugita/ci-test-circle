@@ -49,7 +49,7 @@ mkdir "$LINT_RESULT_DIR"
 cp -v "phpcs_result.xml" "$LINT_RESULT_DIR/"
 cp -v "phpmd_result.xml" "$LINT_RESULT_DIR/"
 
-if [ -z "${CI_PULL_REQUEST}" ]; then
+if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "********************"
     echo "* PHP CodeSniffer"
     echo "********************"
