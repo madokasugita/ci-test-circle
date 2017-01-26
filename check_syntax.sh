@@ -37,7 +37,7 @@ git diff --name-only origin/develop \
     
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
+    | xargs vendor/bin/phpmd xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
 set -e
 
 echo "********************"
@@ -72,6 +72,16 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
     
     cat phpmd_result.xml
+    
+    PCS_RESULT=`cat phpcs_result.xml \
+    | bundle exec checkstyle_filter-git diff origin/develop \
+    | grep -o "<error [^>]*>[^<]*/>"`
+    
+    PMD_RESULT=`cat phpmd_result.xml \
+    | bundle exec pmd_translate_checkstyle_format translate \
+    | bundle exec checkstyle_filter-git diff origin/develop \
+    | grep -o "<error [^>]*>[^<]*/>"`
+    
 fi
 echo "********************"
 echo "* end   $0"
