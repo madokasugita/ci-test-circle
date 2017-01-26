@@ -37,7 +37,7 @@ git diff --name-only origin/develop \
     
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs vendor/bin/phpmd xml rules/phpmd_rules.xml --reportfile phpmd_result.xml
+    | xargs -I{} vendor/bin/phpmd {} text rules/phpmd_rules.xml>> phpmd_result.xml
 set -e
 
 echo "********************"
