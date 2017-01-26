@@ -37,7 +37,7 @@ git diff --name-only origin/develop \
     
 git diff --name-only origin/develop \
     | grep -e '.php$' \
-    | xargs -I{} vendor/bin/phpmd {} text rules/phpmd_rules.xml>> phpmd_result.xml
+    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml>> phpmd_result.xml
 set -e
 
 echo "********************"
@@ -73,6 +73,9 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     
     cat phpmd_result.xml
     
+    echo "********************"
+    echo "* Github Alert"
+    echo "********************"
     PCS_RESULT=`cat phpcs_result.xml \
     | bundle exec checkstyle_filter-git diff origin/develop \
     | grep -o "<error [^>]*>[^<]*/>"`
@@ -82,6 +85,8 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     | bundle exec checkstyle_filter-git diff origin/develop \
     | grep -o "<error [^>]*>[^<]*/>"`
     
+    echo "$PCS_RESULT"
+    echo "$PMD_RESULT"
 fi
 echo "********************"
 echo "* end   $0"
