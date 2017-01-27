@@ -9,6 +9,7 @@ class ClassLoader
 {
     
     protected $dirs;
+    echo $miss_variable2
 
     /**
      * 自身をオートロードスタックに登録
