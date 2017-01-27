@@ -78,16 +78,23 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "********************"
     PCS_RESULT=`cat phpcs_result.xml \
     | bundle exec checkstyle_filter-git diff origin/develop \
-    | grep -o "<error [^>]*>[^<]*/>"`
+    | grep -o "<error [^<]*/>"`
     
     PMD_RESULT=`cat phpmd_result.xml \
     | bundle exec pmd_translate_checkstyle_format translate \
     | bundle exec checkstyle_filter-git diff origin/develop \
-    | grep -o "<error [^>]*>[^<]*/>"`
+    | grep -o "<error [^<]*/>"`
     
+    echo "*****PHPCS*****"
     echo "$PCS_RESULT"
+    echo "*****PHPMD*****"
     echo "$PMD_RESULT"
+    
+    if [ -n "$PCS_RESULT" -o -n "$PMD_RESULT" ]; then
+        exit 1
+    fi
 fi
+
 echo "********************"
 echo "* end   $0"
 echo "********************"
