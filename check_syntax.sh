@@ -88,6 +88,7 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     PMD_RESULT=`git diff --name-only origin/develop \
     | grep -e '.php$' \
     | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
+    | bundle exec pmd_translate_checkstyle_format translate \
     | bundle exec checkstyle_filter-git diff origin/develop \
     | grep -o "<error [^<]*/>"`
     
