@@ -34,10 +34,11 @@ echo "********************"
 git diff --name-only origin/develop \
     | grep -e '.php$' \
     | xargs vendor/bin/phpcs -n --standard=rules/phpcs_rules.xml --report=checkstyle --report-file=phpcs_result.xml
-    
+
 git diff --name-only origin/develop \
     | grep -e '.php$' \
     | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml>> phpmd_result.xml
+
 set -e
 
 echo "********************"
@@ -64,12 +65,16 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "********************"
     echo "* PHP Mess Detector"
     echo "********************"
-    cat phpmd_result.xml \
+    set +e
+    git diff --name-only origin/develop \
+        | grep -e '.php$' \
+        | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
         | bundle exec pmd_translate_checkstyle_format translate \
         | bundle exec checkstyle_filter-git diff origin/develop \
         | bundle exec saddler report \
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
+    set -e
     
     cat phpmd_result.xml
     
@@ -80,8 +85,9 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     | bundle exec checkstyle_filter-git diff origin/develop \
     | grep -o "<error [^<]*/>"`
     
-    PMD_RESULT=`cat phpmd_result.xml \
-    | bundle exec pmd_translate_checkstyle_format translate \
+    PMD_RESULT=`git diff --name-only origin/develop \
+    | grep -e '.php$' \
+    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
     | bundle exec checkstyle_filter-git diff origin/develop \
     | grep -o "<error [^<]*/>"`
     
