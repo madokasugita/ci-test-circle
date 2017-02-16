@@ -15,6 +15,7 @@ abstract class Application
 //    以下エラーコード
     echo $miss_variablec
     echo $miss_variablec
+    echo $miss_variablec
 
 
     /**
