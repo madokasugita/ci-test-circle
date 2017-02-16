@@ -69,8 +69,8 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
 #    git diff --name-only origin/develop \
 #        | grep -e '.php$' \
 #        | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
-        php phpmd_trans.php \
 #        | bundle exec checkstyle_filter-git diff origin/develop \
+        php phpmd_trans.php \
         | bundle exec saddler report \
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
