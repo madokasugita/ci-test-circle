@@ -98,6 +98,7 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "$PCS_RESULT"
     echo "*****PHPMD*****"
     echo "$PMD_RESULT"
+    php phpmd_trans.php
     
     if [ -n "$PCS_RESULT" -o -n "$PMD_RESULT" ]; then
         exit 1
