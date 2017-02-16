@@ -86,10 +86,10 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     | grep -o "<error [^<]*/>"`
     
     set +e
-    PMD_RESULT=`git diff --name-only origin/develop \
-    | grep -e '.php$' \
-    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
-    | php phpmd_trans.php \
+#    PMD_RESULT=`git diff --name-only origin/develop \
+#    | grep -e '.php$' \
+#    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
+    PMD_RESULT=`php phpmd_trans.php \
     | bundle exec checkstyle_filter-git diff origin/develop \
     | grep -o "<error [^<]*/>"`
     set -e
