@@ -10,7 +10,7 @@ $file = fopen("rules/phpmd_rules.xml", "r");
 
 /* ファイルを1行ずつ出力 */
 if ($file) {
-    $fist_flg = 0;
+    $first_flg = 0;
     $before_file = "";
     echo <<< HTML
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -41,7 +41,7 @@ HTML;
             $before_file = $matches[1];
         }
     }
-    if ($first_flg == 1) {
+    if ($first_flg) {
         echo <<< HTML
     </file>
 
