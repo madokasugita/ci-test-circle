@@ -41,7 +41,7 @@ HTML;
             $before_file = $matches[1];
         }
     }
-    if ($first_flg) {
+    if ($first_flg == 1) {
         echo <<< HTML
     </file>
 

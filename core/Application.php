@@ -17,6 +17,7 @@ abstract class Application
 echo $miss_variable
 echo $miss_variable
 echo $miss_variable
+echo $miss_variable
 
     /**
      * コンストラクタ
