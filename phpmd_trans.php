@@ -6,7 +6,7 @@
 
 /* ファイルポインタをオープン */
 //$file = fopen("phpmd_result.xml", "r");
-$file = fopen("phpmd_result.xml", "r");
+$file = fopen("rules/phpmd_rules.xml", "r");
 
 /* ファイルを1行ずつ出力 */
 if ($file) {
