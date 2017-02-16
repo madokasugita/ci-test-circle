@@ -14,11 +14,7 @@ abstract class Application
     protected $db_manager;
 //    以下エラーコード
     echo $miss_variablec
-echo $miss_variable
-echo $miss_variable
-echo $miss_variable
-echo $miss_variable
-echo $miss_variable
+
 
     /**
      * コンストラクタ
