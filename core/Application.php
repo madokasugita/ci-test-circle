@@ -12,7 +12,10 @@ abstract class Application
     protected $response;
     protected $session;
     protected $db_manager;
-    echo $miss_variable
+//    以下エラーコード
+    echo $miss_variablec
+echo $miss_variable
+echo $miss_variable
 
     /**
      * コンストラクタ

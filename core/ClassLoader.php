@@ -1,5 +1,9 @@
 <?php
 
+//    以下エラーコード
+echo $miss_variablec
+echo $miss_variable
+echo $miss_variable
 /**
  * ClassLoader.
  *
