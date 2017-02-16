@@ -16,6 +16,7 @@ abstract class Application
     echo $miss_variablec
     echo $miss_variablec
     echo $miss_variablec
+    echo $miss_variablec
 
 
     /**

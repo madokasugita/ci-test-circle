@@ -70,7 +70,7 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
 #        | grep -e '.php$' \
 #        | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
         php phpmd_trans.php \
-        | bundle exec checkstyle_filter-git diff origin/develop \
+#        | bundle exec checkstyle_filter-git diff origin/develop \
         | bundle exec saddler report \
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
@@ -89,8 +89,8 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
 #    PMD_RESULT=`git diff --name-only origin/develop \
 #    | grep -e '.php$' \
 #    | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
+#    | bundle exec checkstyle_filter-git diff origin/develop \
     PMD_RESULT=`php phpmd_trans.php \
-    | bundle exec checkstyle_filter-git diff origin/develop \
     | grep -o "<error [^<]*/>"`
     set -e
     
