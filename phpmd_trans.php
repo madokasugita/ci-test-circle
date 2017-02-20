@@ -5,8 +5,10 @@
 //var_dump($xml_ary);
 
 /* ファイルポインタをオープン */
-//$file = fopen("phpmd_result_test.xml", "r");
 $file = fopen("phpmd_result.xml", "r");
+//$file = fopen("log/phpmd_result_201701241721.log", "r");
+//$file = fopen("result_phpmd_test2.xml", "r");
+//C:\workspace\src\ci-test-circle\log\phpmd_result_201701241721.log
 
 /* ファイルを1行ずつ出力 */
 if ($file) {
@@ -16,10 +18,10 @@ if ($file) {
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <checkstyle version="2.7.1">
 
-HTML;
+HTML;g
     while ($line = fgets($file)) {
 //        echo htmlspecialchars($line) . "<br>";
-        if (preg_match("/^<error\sfilename=\"(.*)\"\smsg=\"(.*):.*line:\s([0-9]*),\scol:\s([0-9]*).*/", $line, $matches)) {
+        if (preg_match("/<error\sfilename=\"(.*)\"\smsg=\"(.*):.*line:\s([0-9]*),\scol:\s([0-9]*).*/", $line, $matches)) {
             echo $line;
             if ($before_file != $matches[1]) {
                 if (!$first_flg) {
