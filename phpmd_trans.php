@@ -1,16 +1,9 @@
 <?php
-//$xml = "phpmd_result_test.xml";//ファイルを指定
-//$xmlData = simplexml_load_file($xml);//xmlを読み込む
-//$xml_ary = json_decode(json_encode($xml_obj), true);
-//var_dump($xml_ary);
-
-/* ファイルポインタをオープン */
-$file = fopen("phpmd_result.xml", "r");
+//$file = fopen("phpmd_result.xml", "r");
 //$file = fopen("log/phpmd_result_201701241721.log", "r");
-//$file = fopen("result_phpmd_test2.xml", "r");
-//C:\workspace\src\ci-test-circle\log\phpmd_result_201701241721.log
+$file = fopen($argv[1], "r");
+var_dump($argv[1]);
 
-/* ファイルを1行ずつ出力 */
 if ($file) {
     $first_flg = 0;
     $before_file = "";
@@ -20,7 +13,6 @@ if ($file) {
 
 HTML;
     while ($line = fgets($file)) {
-//        echo htmlspecialchars($line) . "<br>";
         if (preg_match("/<error\sfilename=\"(.*)\"\smsg=\"(.*)line:\s([0-9]*),\scol:\s([0-9]*).*/", $line, $matches)) {
             echo $line;
             if ($before_file != $matches[1]) {
@@ -56,5 +48,4 @@ HTML;
 HTML;
 }
 
-/* ファイルポインタをクローズ */
 fclose($file);
