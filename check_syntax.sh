@@ -48,7 +48,7 @@ LINT_RESULT_DIR="$CIRCLE_ARTIFACTS/lint"
 
 mkdir "$LINT_RESULT_DIR"
 cp -v "phpcs_result.xml" "$LINT_RESULT_DIR/"
-cp -v "phpmd_result_test.xml" "$LINT_RESULT_DIR/"
+cp -v "phpmd_result.xml" "$LINT_RESULT_DIR/"
 
 if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "********************"
@@ -71,11 +71,6 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
 #        | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
 #        | bundle exec checkstyle_filter-git diff origin/develop \
         php phpmd_trans.php \
-        | bundle exec saddler report \
-        --require saddler/reporter/github \
-        --reporter Saddler::Reporter::Github::PullRequestReviewComment
-
-        cat phpmd_result_test.xml \
         | bundle exec saddler report \
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
