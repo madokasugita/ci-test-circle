@@ -25,17 +25,9 @@
           <file leaf-file-name="phpmd_trans.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/phpmd_trans.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-                  <folding>
-                    <marker date="1487573971997" expanded="true" signature="443:1446" ph="..." />
-                    <marker date="1487573971997" expanded="true" signature="504:578" ph="..." />
-                    <marker date="1487573971997" expanded="true" signature="619:1336" ph="..." />
-                    <marker date="1487573971997" expanded="true" signature="791:1330" ph="..." />
-                    <marker date="1487573971997" expanded="true" signature="862:1118" ph="..." />
-                    <marker date="1487573971997" expanded="true" signature="897:1023" ph="..." />
-                    <marker date="1487573971997" expanded="true" signature="967:1001" ph="..." />
-                  </folding>
+                <state relative-caret-position="238">
+                  <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -80,11 +72,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="34">
-                  <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+                  <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -93,18 +85,18 @@
           <file leaf-file-name="Application.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/core/Application.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+                <state relative-caret-position="357">
+                  <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ClassLoader.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ClassLoader.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/ClassLoader.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+                <state relative-caret-position="425">
+                  <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
@@ -169,10 +161,10 @@
         <option value="$PROJECT_DIR$/phpmd_result.xml" />
         <option value="$PROJECT_DIR$/result_phpmd_test2.xml" />
         <option value="$PROJECT_DIR$/check_syntax.sh" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/phpmd_trans.php" />
         <option value="$PROJECT_DIR$/core/Application.php" />
         <option value="$PROJECT_DIR$/core/ClassLoader.php" />
-        <option value="$PROJECT_DIR$/phpmd_trans.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -753,12 +745,12 @@
       <option name="presentableId" value="Default" />
       <updated>1487237171990</updated>
       <workItem from="1487237180207" duration="4113000" />
-      <workItem from="1487569204540" duration="4788000" />
+      <workItem from="1487569204540" duration="4949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8901000" />
+    <option name="totallyTimeSpent" value="9062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -813,15 +805,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding>
-            <marker date="1487573971997" expanded="true" signature="443:1446" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="504:578" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="619:1336" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="791:1330" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="862:1118" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="897:1023" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="967:1001" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -873,6 +857,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/log/phpmd_result_201701241721.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -881,34 +873,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/ClassLoader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phpmd_trans.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <marker date="1487573971997" expanded="true" signature="443:1446" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="504:578" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="619:1336" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="791:1330" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="862:1118" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="897:1023" ph="..." />
-            <marker date="1487573971997" expanded="true" signature="967:1001" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/phpmd_result_201701241721.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -937,18 +905,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Application.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        <state relative-caret-position="34">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/core/Application.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="357">
+          <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/ClassLoader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
           <folding />
         </state>
       </provider>

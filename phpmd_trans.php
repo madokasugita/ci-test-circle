@@ -18,7 +18,7 @@ if ($file) {
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <checkstyle version="2.7.1">
 
-HTML;g
+HTML;
     while ($line = fgets($file)) {
 //        echo htmlspecialchars($line) . "<br>";
         if (preg_match("/<error\sfilename=\"(.*)\"\smsg=\"(.*):.*line:\s([0-9]*),\scol:\s([0-9]*).*/", $line, $matches)) {
