@@ -6,6 +6,7 @@
  * @author Katsuhiro Ogawa <fivestar@nequal.jp>
  */
 abstract class Application
+abstract class Application
 {
     protected $debug = false;
     protected $request;
@@ -17,6 +18,7 @@ abstract class Application
                         echo $miss_variablec
                         echo $miss_variablec
 echo $miss_variablec
+                        echo $miss_variablec
                         echo $miss_variablec
                         echo $miss_variablec
                         echo $miss_variablec

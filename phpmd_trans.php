@@ -17,18 +17,18 @@ HTML;
                 if (!$first_flg) {
                     $first_flg = 1;
                     echo <<< HTML
-    <file name="{$matches[1]}">
+<file name="{$matches[1]}">
 
 HTML;
                 }
                 echo <<< HTML
-    </file>
-    <file name="{$matches[1]}">
+</file>
+<file name="{$matches[1]}">
 
 HTML;
             }
             echo <<< HTML
-        <error line="{$matches[3]}" column="{$matches[4]}" severity="error" message="{$matches[2]}" source="PHP Mess Detector"/>
+ <error line="{$matches[3]}" column="{$matches[4]}" severity="error" message="{$matches[2]}" source="PHP Mess Detector"/>
 
 HTML;
             $before_file = $matches[1];
@@ -36,7 +36,7 @@ HTML;
     }
     if ($first_flg) {
         echo <<< HTML
-    </file>
+</file>
 
 HTML;
     }
