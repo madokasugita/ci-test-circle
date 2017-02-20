@@ -12,7 +12,7 @@ if ($file) {
 
 HTML;
     while ($line = fgets($file)) {
-        if (preg_match("/<error\sfilename=\"(.*)\"\smsg=\"(.*)line:\s([0-9]*),\scol:\s([0-9]*).*/", $line, $matches)) {
+        if (preg_match("/<error\sfilename=\"(.*)\"\smsg=\"(.*),\sline:\s([0-9]*),\scol:\s([0-9]*).*/", $line, $matches)) {
             if ($before_file != $matches[1]) {
                 if (!$first_flg) {
                     $first_flg = 1;
@@ -20,12 +20,13 @@ HTML;
 <file name="{$matches[1]}">
 
 HTML;
-                }
-                echo <<< HTML
+                } else {
+                    echo <<< HTML
 </file>
 <file name="{$matches[1]}">
 
 HTML;
+                }
             }
             echo <<< HTML
  <error line="{$matches[3]}" column="{$matches[4]}" severity="error" message="{$matches[2]}" source="PHP Mess Detector"/>

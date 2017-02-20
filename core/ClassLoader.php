@@ -21,6 +21,9 @@ class ClassLoader
     echo $miss_variable2
             echo $miss_variable2
             echo $miss_variable2
+            echo $miss_variable2
+                echo $miss_variable2
+                echo $miss_variable2
                 echo $miss_variable2
                 echo $miss_variable2
                 echo $miss_variable2
