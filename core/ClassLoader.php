@@ -11,6 +11,7 @@ echo $miss_variablec
  * @author Katsuhiro Ogawa <fivestar@nequal.jp>
  */
 class ClassLoader
+class ClassLoader
 {
     
     protected $dirs;
@@ -20,6 +21,8 @@ class ClassLoader
     echo $miss_variable2
             echo $miss_variable2
             echo $miss_variable2
+                echo $miss_variable2
+                echo $miss_variable2
                 echo $miss_variable2
                 echo $miss_variable2
                 echo $miss_variable2
