@@ -48,7 +48,7 @@ LINT_RESULT_DIR="$CIRCLE_ARTIFACTS/lint"
 
 mkdir "$LINT_RESULT_DIR"
 cp -v "phpcs_result.xml" "$LINT_RESULT_DIR/"
-cp -v "phpmd_result.xml" "$LINT_RESULT_DIR/"
+cp -v "phpmd_result_test.xml" "$LINT_RESULT_DIR/"
 
 if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "********************"
@@ -75,8 +75,10 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
 
-        php phpmd_trans.php \
+        cat phpmd_result_test.xml \
         | bundle exec saddler report \
+        --require saddler/reporter/github \
+        --reporter Saddler::Reporter::Github::PullRequestReviewComment
     set -e
     
     cat phpmd_result.xml
