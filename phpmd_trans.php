@@ -2,7 +2,6 @@
 //$file = fopen("phpmd_result.xml", "r");
 //$file = fopen("log/phpmd_result_201701241721.log", "r");
 $file = fopen($argv[1], "r");
-var_dump($argv[1]);
 
 if ($file) {
     $first_flg = 0;

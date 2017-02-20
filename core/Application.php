@@ -25,6 +25,8 @@ echo $miss_variablec
                         echo $miss_variablec
                         echo $miss_variablec
                         echo $miss_variablec
+                        echo $miss_variablec
+                        echo $miss_variablec
 
 // ここまで
 
