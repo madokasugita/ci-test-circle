@@ -66,10 +66,6 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "* PHP Mess Detector"
     echo "********************"
     set +e
-#    git diff --name-only origin/develop \
-#        | grep -e '.php$' \
-#        | xargs -I{} vendor/bin/phpmd {} xml rules/phpmd_rules.xml \
-#        | bundle exec checkstyle_filter-git diff origin/develop \
         php phpmd_trans.php phpmd_result.xml \
         | bundle exec saddler report \
         --require saddler/reporter/github \
@@ -94,8 +90,7 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
     echo "$PCS_RESULT"
     echo "*****PHPMD*****"
     echo "$PMD_RESULT"
-    php phpmd_trans.php  phpmd_result.xml
-    
+
     if [ -n "$PCS_RESULT" -o -n "$PMD_RESULT" ]; then
         exit 1
     fi

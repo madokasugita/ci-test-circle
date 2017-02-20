@@ -1,9 +1,5 @@
 <?php
 
-//    以下エラーコード
-echo $miss_variablec
-
-// ここまで
 
 /**
  * ClassLoader.
@@ -11,31 +7,9 @@ echo $miss_variablec
  * @author Katsuhiro Ogawa <fivestar@nequal.jp>
  */
 class ClassLoader
-class ClassLoader
 {
     
     protected $dirs;
-    echo $miss_variable2
-    echo $miss_variable2
-    echo $miss_variable2
-    echo $miss_variable2
-            echo $miss_variable2
-            echo $miss_variable2
-            echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2
-                echo $miss_variable2d
-                echo $miss_variable2d
-                echo $miss_variable2d
 
     /**
      * 自身をオートロードスタックに登録

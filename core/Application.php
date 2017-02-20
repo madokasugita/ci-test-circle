@@ -6,33 +6,11 @@
  * @author Katsuhiro Ogawa <fivestar@nequal.jp>
  */
 abstract class Application
-abstract class Application
 {
     protected $debug = false;
     protected $request;
     protected $response;
     protected $session;
-                            protected $db_manager;
-//    以下エラーコード
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-                        echo $miss_variablec
-
-// ここまで
 
 
     /**
