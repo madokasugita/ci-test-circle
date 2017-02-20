@@ -74,6 +74,9 @@ if [ -n "${CI_PULL_REQUEST}" ]; then
         | bundle exec saddler report \
         --require saddler/reporter/github \
         --reporter Saddler::Reporter::Github::PullRequestReviewComment
+
+        php phpmd_trans.php \
+        | bundle exec saddler report \
     set -e
     
     cat phpmd_result.xml

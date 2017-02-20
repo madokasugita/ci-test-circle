@@ -3,6 +3,8 @@
 //    以下エラーコード
 echo $miss_variablec
 
+// ここまで
+
 /**
  * ClassLoader.
  *
@@ -12,6 +14,8 @@ class ClassLoader
 {
     
     protected $dirs;
+    echo $miss_variable2
+    echo $miss_variable2
     echo $miss_variable2
 
     /**
