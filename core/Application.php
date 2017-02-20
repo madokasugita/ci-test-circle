@@ -13,10 +13,8 @@ abstract class Application
     protected $session;
                             protected $db_manager;
 //    以下エラーコード
-    echo $miss_variablec
-    echo $miss_variablec
                         echo $miss_variablec
-                        echo $miss_variablec
+echo $miss_variablec
                         echo $miss_variablec
 
 // ここまで
