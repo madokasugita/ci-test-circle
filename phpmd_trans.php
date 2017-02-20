@@ -14,7 +14,6 @@ if ($file) {
 HTML;
     while ($line = fgets($file)) {
         if (preg_match("/<error\sfilename=\"(.*)\"\smsg=\"(.*)line:\s([0-9]*),\scol:\s([0-9]*).*/", $line, $matches)) {
-            echo $line;
             if ($before_file != $matches[1]) {
                 if (!$first_flg) {
                     $first_flg = 1;

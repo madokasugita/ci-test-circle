@@ -28,7 +28,8 @@ class ClassLoader
                 echo $miss_variable2
                 echo $miss_variable2
                 echo $miss_variable2
-                echo $miss_variable2
+                echo $miss_variable2d
+                echo $miss_variable2d
 
     /**
      * 自身をオートロードスタックに登録
