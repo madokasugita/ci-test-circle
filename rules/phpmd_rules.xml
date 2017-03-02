@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="PHPMD rule set"
+	xmlns="http://pmd.sf.net/ruleset/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+	xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+	<description> custom ruleset that checks the code </description>
+	<rule ref="rulesets/codesize.xml/CyclomaticComplexity">
+	<priority>1</priority>
+		<properties>
+			<property value="15" name="reportLevel"></property>
+		</properties>
+	</rule>
+	<rule ref="rulesets/unusedcode.xml/UnusedPrivateMethod" /> <!-- 親ルールを指定すると含まれる子ルール全てが適用される -->
+	<rule ref="rulesets/controversial.xml/Superglobals" /> <!-- スーパーグローバル変数の利用箇所を検出する。 -->
+</ruleset>

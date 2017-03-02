@@ -52,8 +52,8 @@ class AccountController extends Controller
 
         if (!strlen($password)) {
             $errors[] = 'パスワードを入力してください';
-        } else if (4 > strlen($password) || strlen($password) > 30) {
-            $errors[] = 'パスワードは4 ～ 30 文字以内で入力してください';
+        } else if (8 > strlen($password) || strlen($password) > 30) {
+            $errors[] = 'パスワードは8 ～ 30 文字以内で入力してください';
         }
 
         if (count($errors) === 0) {
