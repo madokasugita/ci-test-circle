@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * ClassLoader.
  *
@@ -7,6 +8,7 @@
  */
 class ClassLoader
 {
+    
     protected $dirs;
 
     /**
