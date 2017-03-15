@@ -59,4 +59,9 @@ class UserRepository extends DbRepository
 
         return $this->fetchAll($sql, array(':user_id' => $user_id));
     }
+
+    public function hogehoge()
+    {
+        echo "hoge";
+    }
 }
