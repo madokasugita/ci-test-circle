@@ -71,5 +71,8 @@ header("Content-type: application/octet-stream; name=\"{$filename}\"");
 readfile(DIR_FB . $server_filename);
 
 write_log_dl_user("start", $user['uid']);
+write_log_dl_user("start", $user['uid']);
+write_log_dl_user("start", $user['uid']);
+write_log_dl_user("start", $user['uid']);
 exit;
 
