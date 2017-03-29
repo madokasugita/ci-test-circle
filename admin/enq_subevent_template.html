@@ -1,0 +1,722 @@
+<!doctype html>
+<html>
+<head>
+	<title>質問編集 - %%%%event_name%%%%</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="content-script-type" content="text/javascript">
+	
+	<script type="text/javascript" language="javascript" src="%%%%img_path%%%%jquery-1.7.1.min.js" charset="UFT-8"></script>
+	<!-- todo:jquery1.4.2でないと動かないので修正する。 -->
+	<script src="%%%%img_path%%%%common.js"></script>
+	<script src="%%%%img_path%%%%jquery.tools.min.js"></script>
+	<script src="%%%%img_path%%%%jquery-ui-1.10.0.min.js"></script>
+	<script src="%%%%img_path%%%%jquery/behave.js"></script>
+	
+	<link type="text/css" href="%%%%img_path%%%%360_adminpage.css" rel="stylesheet">
+	<link type="text/css" href="%%%%img_path%%%%redmond/jquery-ui-1.10.0.custom.min.css" rel="stylesheet">
+	<style type="text/css">
+	<!--
+	body {
+		margin:0; padding:0;
+		background:#F2F2F2;
+		text-align:left;
+	}
+	img {border:0; }
+	label:hover {background:#ddeeff; }
+	li{
+		margin:0 5px 0 0;
+		list-style: decimal;
+		font-size: 1em;
+	}
+	li.selected{
+		background:#c5cdd7
+	}
+	
+	li.page_break{
+		border-top:dotted 1px #314e93
+	}
+	
+	li a {
+		color:#000088;display:block;
+		padding:2px 0 2px 0;
+	}
+	li a:hover {color:#3399cc; background:#f5faff; }
+	li.selected a:hover{background:#C5CDD7}
+	a.button {display:block; border:1px solid #888888; padding:2px; }
+	a.button:hover {display:block; background:#f5faff; border:1px solid #888888; padding:2px; }
+	.txtbox {border:1px solid #999999; padding:2px; background:#ffffff;}
+	.titlebox {font-size:15px; font-weight:bold; border:1px solid #999999; padding:2px; background:#ffffff;height:23px; }
+
+	iframe#preview {
+		border:1px solid #999999; padding:2px;
+		width:99%;
+		height:220px;
+	}
+	
+	#html2textarea{
+		width:99%;
+		height:240px;
+	}
+
+	#wrapTable{
+		margin:8px auto;
+		background:#fff;
+		border-radius:10px;
+	}
+	
+	#wrapTable
+	{
+	    position:relative;
+	    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+	#wrapTable:before, #wrapTable:after
+	{
+	    content:"";
+	    position:absolute;
+	    z-index:-1;
+	    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    top:50%;
+	    bottom:0;
+	    left:10px;
+	    right:10px;
+	    -moz-border-radius:100px / 10px;
+	    border-radius:100px / 10px;
+	}
+	#wrapTable:after
+	{
+	    right:10px;
+	    left:auto;
+	    -webkit-transform:skew(8deg) rotate(3deg);
+	       -moz-transform:skew(8deg) rotate(3deg);
+	        -ms-transform:skew(8deg) rotate(3deg);
+	         -o-transform:skew(8deg) rotate(3deg);
+	            transform:skew(8deg) rotate(3deg);
+	}
+	
+	#subenqTable{
+		width:100%;
+		margin-top:5px
+	}
+	#subenqTable th{
+		width:100px;
+		text-align:left;
+		background:#f2f2f2
+	}
+
+	.sidetitle2 {
+    	width: auto;
+    	margin:3px 0px 0px 0px;
+    	padding: 0px;
+    	text-align: center; /* テキスト配置 */
+	}
+ 
+	.sidetitle2 a {
+    	width: auto;
+	}
+ 
+	/* 通常 */
+	.sidetitle2 a:link,
+	.sidetitle2 a:visited {
+    	display: block;
+    	padding: 2px;
+    	border: 1px solid #999999; /* 枠線 */
+    	color:#666666; /* 文字色 */
+    	background-color:#f6f6f6; /* 背景色 */
+    	font-family: Verdana, Arial, sans-serif;
+    	font-size:10px;
+    	text-decoration: none;
+	}
+ 
+	/* マウスポイント時 */
+	.sidetitle2 a:hover {
+    	padding: 2px;
+    	border: 1px solid #999999; /* 枠線 */
+    	color:#ffffff; /* 文字色 */
+    	background-color: #999999; /* 背景色 */
+    	font-family: Verdana, Arial, sans-serif;
+    	font-size:10px;
+    	text-decoration: none;
+	}
+	-->
+	</style>
+<script language="JavaScript">
+<!-- 
+
+$(function(){
+
+	//質問一覧スクロール
+	if($(".selected").position())
+		$("#listMenu").scrollTop(0).scrollTop($(".selected").position().top - 80);
+	
+	$("#tabs").tabs();
+	
+	if(!isIE || isIE >= 9)
+		var editor = new Behave({textarea: document.getElementById('html2textarea')});
+	
+	//htmlプレビューイベントバインド
+	/*
+	var html2 = $("[name='html2']")[0];
+	$("#preview").load(function(){
+		$(this).contents().find('#maincontainer').html($(html2).val());
+	});
+	$(html2).bind("keyup change", function(){
+		$("#preview").contents().find('#maincontainer').html($(this).val());
+	});
+	*/
+	
+	if($("#extText").val() != "")
+	{
+		showObj(document.getElementById("extMenu"),true);
+	}
+	
+	//表示切り替え
+	allHideden();
+	
+	//ヘルプモダル設定
+	$("input[rel]").overlay({
+		mask: {
+			color: '#fff',
+			loadSpeed: 'normal',
+			opacity: '0.3'
+		}
+	});
+});
+
+function postconf() {
+	return confirm("回答を送信しますか？");
+}
+function postconf2() {
+	if(confirm("削除しますか？")){
+		location.href="%%%%PHP_SELF%%%%&evid=%%%%subevent:evid%%%%&seid=%%%%subevent:seid%%%%&mode=delete"; 
+	}
+}
+function postconf3() {
+	if(confirm("[メインHTML]の内容を自動生成したHTML置き換えます。よろしいでしょうか？"))
+	{
+		var conf = document.getElementById("main");
+		document.forms[0].conf.submit;
+	}
+}
+
+function showObj(obj,bol) {
+	if(bol)
+	{
+		obj.style.display = "";
+		obj.style.visibility = "visible";
+	}
+	else
+	{
+		obj.style.display = "none";
+		obj.style.visibility = "hidden";
+	}
+	return;
+}
+
+function allHideden()
+{
+	onSelect(document.getElementById("typeA"));
+	
+}
+
+function onSelect(obj) {
+
+	if(document.getElementsByName("html2")[0].value == '')
+	{
+		showObj(document.getElementById("lhtml2"),false);
+		showObj(document.getElementById("reform"),false);
+		
+	}
+	else
+	{
+		showObj(document.getElementById("lhtml2"),true);
+		showObj(document.getElementById("reform"),true);
+	}
+
+	if (obj.value == "0n")
+	{
+		showObj(document.getElementById("lhissu"),false);
+		showObj(document.getElementById("lchoice"),false);
+		showObj(document.getElementById("lchtable"),false);
+		showObj(document.getElementById("lrandom"),false);
+		showObj(document.getElementById("lsize"),false);
+		showObj(document.getElementById("lother"),false);
+		showObj(document.getElementById("lfel"),false);
+		showObj(document.getElementById("ltypeM"),false);
+		showObj(document.getElementById("lhtml1"),false);
+		showObj(document.getElementById("lhtml2"),true);
+		showObj(document.getElementById("reform"),false);
+	}
+	else if (obj.value == "1r")
+	{
+		showObj(document.getElementById("lhissu"),true);
+		showObj(document.getElementById("lchoice"),true);
+		showObj(document.getElementById("lchtable"),true);
+		showObj(document.getElementById("lrandom"),true);
+		showObj(document.getElementById("lsize"),false);
+		showObj(document.getElementById("lother"),true);
+		showObj(document.getElementById("ltexthidden1"),true);
+		showObj(document.getElementById("ltexthidden2"),true);
+		showObj(document.getElementById("lfel"),true);
+		showObj(document.getElementById("ltypeM"),false);
+		showObj(document.getElementById("lhtml1"),false);
+		onOther();
+	}
+	else if (obj.value == "2c")
+	{
+		showObj(document.getElementById("lhissu"),true);
+		showObj(document.getElementById("lchoice"),true);
+		showObj(document.getElementById("lchtable"),false);
+		showObj(document.getElementById("lrandom"),true);
+		showObj(document.getElementById("lsize"),false);
+		showObj(document.getElementById("lother"),true);
+		showObj(document.getElementById("ltexthidden1"),true);
+		showObj(document.getElementById("ltexthidden2"),true);
+		showObj(document.getElementById("lfel"),true);
+		showObj(document.getElementById("ltypeM"),false);
+		showObj(document.getElementById("lhtml1"),false);
+		onOther();
+	}
+	else if (obj.value == "1p")
+	{
+		showObj(document.getElementById("lhissu"),true);
+		showObj(document.getElementById("lchoice"),true);
+		showObj(document.getElementById("lchtable"),true);
+		showObj(document.getElementById("lrandom"),true);
+		showObj(document.getElementById("lsize"),false);
+		showObj(document.getElementById("lother"),true);
+		showObj(document.getElementById("ltexthidden1"),true);
+		showObj(document.getElementById("ltexthidden2"),true);
+		showObj(document.getElementById("lfel"),false);
+		showObj(document.getElementById("ltypeM"),false);
+		showObj(document.getElementById("lhtml1"),false);
+		onOther();
+		
+	}
+	else if(obj.value == "3t" || obj.value == "4t" || obj.value == "10t")
+	{		
+		showObj(document.getElementById("lhissu"),true);
+		showObj(document.getElementById("lchoice"),false);
+		showObj(document.getElementById("lchtable"),false);
+		showObj(document.getElementById("lrandom"),false);
+		showObj(document.getElementById("lsize"),true);
+		showObj(document.getElementById("lwordlimit"),true);
+		showObj(document.getElementById("lother"),true);
+		showObj(document.getElementById("ltexthidden1"),false);
+		showObj(document.getElementById("ltexthidden2"),false);
+		showObj(document.getElementById("lfel"),false);
+		showObj(document.getElementById("ltypeM"),false);
+		showObj(document.getElementById("lhtml1"),false);
+	}
+	else if(obj.value == "5m" || obj.value == "6m" || obj.value == "7m")
+	{
+		showObj(document.getElementById("lhissu"),true);
+		showObj(document.getElementById("lchoice"),true);
+		showObj(document.getElementById("lchtable"),true);
+		showObj(document.getElementById("lrandom"),false);
+		showObj(document.getElementById("lsize"),false);
+		showObj(document.getElementById("lother"),false);
+		showObj(document.getElementById("ltexthidden1"),false);
+		showObj(document.getElementById("ltexthidden2"),false);
+		showObj(document.getElementById("lfel"),false);
+		showObj(document.getElementById("ltypeM"),true);
+		showObj(document.getElementById("lhtml1"),false);
+	}
+	else
+	{
+		showObj(document.getElementById("lhissu"),true);
+		showObj(document.getElementById("lchoice"),false);
+		showObj(document.getElementById("lchtable"),false);
+		showObj(document.getElementById("lrandom"),false);
+		showObj(document.getElementById("lsize"),false);
+		showObj(document.getElementById("lother"),false);
+		showObj(document.getElementById("ltexthidden1"),false);
+		showObj(document.getElementById("ltexthidden2"),false);
+		showObj(document.getElementById("lfel"),false);
+		showObj(document.getElementById("ltypeM"),false);
+		showObj(document.getElementById("lhtml1"),false);
+	}
+		
+	if(document.all.chtable.value != "")
+	{
+		showObj(document.getElementById("extMenu1"),true);
+	}
+
+	return;
+}
+
+function onOther() {
+	if(document.getElementsByName("other")[1].checked)
+	{
+		showObj(document.getElementById("lsize"),true);
+	}
+	else
+	{
+		showObj(document.getElementById("lsize"),false);
+	}
+	return;
+}
+
+
+function getKEYCODE(e){
+	try {
+		e.keyCode;
+	} catch(ex) {
+		e = event;  // for IE
+	}
+	return e.keyCode;
+}
+function keydown(e) {
+	var keycode = getKEYCODE(e);
+	ev = e? e:event;
+
+//	if(keycode == 50 && ev.altKey){
+//		document.getElementsByTagName("input")[0].click();
+//		event.keyCode = 0;
+//		return false;
+//	}
+
+	// J 74 次の質問
+	if(keycode == 74 && ev.altKey){
+		location.href = '%%%%PHP_SELF%%%%&seid=%%%%data:next_seid%%%%&evid=%%%%subevent:evid%%%%';
+		event.keyCode = 0;
+		return false;
+	}
+	
+	// K 75 前の質問
+	if(keycode == 75 && ev.altKey){
+		location.href = '%%%%PHP_SELF%%%%&seid=%%%%data:pre_seid%%%%&evid=%%%%subevent:evid%%%%';
+		event.keyCode = 0;
+		return false;
+	}
+	// S 83 更新
+	// Q 81
+	if(keycode == 81 && ev.altKey){
+		document.getElementsByName("main2")[0].click();
+		event.keyCode = 0;
+		return false;
+	}
+	
+	// h メインhmtlにフォーカス
+	if(keycode == 72){
+		var element = (document.activeElement || window.getSelection().focusNode);
+		if(element.tagName == 'BODY'){
+			document.getElementsByName("html2")[0].focus();
+			event.keyCode = 0;
+			return false;
+		}
+	}
+	
+	//tab テキストエリアにタブ入力
+	/*
+	if(keycode == 9){
+		var element = (document.activeElement || window.getSelection().focusNode);
+		if(element.tagName == 'TEXTAREA'){
+			if (element.createTextRange) { // for IE
+				var range = document.selection.createRange();
+				range.text = "\t";
+			} else if (element.setSelectionRange) {
+				var top = element.scrollTop;
+				var start = element.selectionStart;
+				element.value = element.value.substr(0, element.selectionStart)
+					+ "\t"	+ element.value.substr(element.selectionEnd);
+				element.setSelectionRange(start+1,start+1);
+				element.scrollTop = top;
+			}
+			event.keyCode = 0;
+			return false;
+		}
+	}
+	*/
+}
+window.document.onkeydown = keydown;
+
+function exMenu(tName)
+{
+	tMenu = document.all[tName].style;
+	if (tMenu.display == 'none') tMenu.display = "block"; else tMenu.display = "none";
+}
+
+function insertWord(){
+var word = document.getElementById('wordList').value;
+var area = document.getElementById('html2textarea');
+var content = document.getElementById('html2textarea').value;
+var position = area.selectionStart;
+var front = content.substr(0, position);
+var back = content.substr(position, content.length);
+document.getElementById('html2textarea').value = front + word + back;
+document.getElementById('wordList').selectedIndex=0;
+}
+//-->
+</script>
+</head>
+<body>
+<form action="%%%%PHP_SELF%%%%&evid=%%%%subevent:evid%%%%&seid=%%%%subevent:seid%%%%" method="post">
+<input type="hidden" name="mode" value="update">
+	<table cellspacing="10" cellpadding="0" id="wrapTable">
+		<tr>
+			<td valign="top">
+				<table width="100%" cellpadding="5" cellspacing="0" style="color:white; font-size:10pt; background-color:#3080BB; border-radius:5px 0 0 0;">
+					<tr>
+						<td width="50" align="left">
+							%%%%subevent:num%%%%/%%%%event:lastnum%%%%
+						</td>
+						<td align="center">
+							%%%%event_name%%%%
+						</td>
+						<td width="50" align="right">
+						</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="5" cellspacing="0" width="100%" bgcolor="#f2f8ff" id="controller">
+					<tr style="font-size: 12px;line-height: 1.0em;">
+						<td height="35" align="right">
+							<a onclick="return this.flag?false:this.flag=true;"href="%%%%PHP_SELF%%%%&seid=%%%%data:pre_page_seid%%%%&evid=%%%%subevent:evid%%%%" title="前のページへ"%%%%data:pre_page_hidden%%%%>
+								<img src="%%%%img_path%%%%lastpage.gif" height="21" width="81">
+							</a>
+							<a onclick="return this.flag?false:this.flag=true;"href="%%%%PHP_SELF%%%%&seid=%%%%data:pre_seid%%%%&evid=%%%%subevent:evid%%%%" title="前の質問へ"%%%%data:pre_seid_hidden%%%%>
+								<img src="%%%%img_path%%%%lastid.gif" alt="前の質問へ" height="21" width="32">
+							</a>
+						</td>
+						<td align="center">
+							[No] <strong style="font-size:15px;">%%%%subevent:num%%%%</strong>　[質問ID] <strong style="font-size:15px;">%%%%subevent:seid%%%%</strong>　[Page] <strong style="font-size:15px;">%%%%subevent:page%%%%/%%%%event:lastpage%%%%</strong>
+						</td>
+						<td>
+							<a onclick="return this.flag?false:this.flag=true;" href="%%%%PHP_SELF%%%%&seid=%%%%data:next_seid%%%%&evid=%%%%subevent:evid%%%%" title="次の質問へ"%%%%data:next_seid_hidden%%%%>
+								<img src="%%%%img_path%%%%nextid.gif" alt="次の質問へ" border="0">
+							</a>
+							<a onclick="return this.flag?false:this.flag=true;"href="%%%%PHP_SELF%%%%&seid=%%%%data:next_page_seid%%%%&evid=%%%%subevent:evid%%%%" title="次のページへ"%%%%data:next_page_hidden%%%%>
+								<img src="%%%%img_path%%%%nextpage.gif" border="0">
+							</a>
+						</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top:5px">
+					<tr>
+						<td>
+							<input type="button" onclick="location.href = '%%%%PHP_SELF%%%%&evid=%%%%subevent:evid%%%%&seid=%%%%subevent:seid%%%%&mode=insertBefore'" value="前に質問追加" class="white button">
+						</td>
+						<td>
+							<input type="button" onclick="location.href = '%%%%PHP_SELF%%%%&evid=%%%%subevent:evid%%%%&seid=%%%%subevent:seid%%%%&mode=insertAfter'" value="後に質問追加" class="white button">
+						</td>
+						<td>
+							<input name="insertAfter" value="更新して後に質問追加" type="submit" class="white button">
+						</td>
+						<td align="right">
+							<input name="main2" value="　更　新　" type="submit" class="white button">
+							<input name="page" value="1" type="hidden">
+						</td>
+						<td align="right" width="100%">
+							<input type="button" onClick="window.open('%%%%data:preview%%%%')" target="_blank" value="アンケート画面の確認" class="gray button">
+							<input type="button" value="?" class="gray button" rel="#mies1">
+						</td>
+					</tr>
+				</table>
+				<table border="0" align="center" cellpadding="0" cellspacing="5" width="100%">
+					<tr>
+					</tr>
+				</table>
+				<div style="padding:0px 0px;marigin-bottom:0px;background-color:#f2f2f2">
+				<div style="padding:5px;">
+				<strong>[質問文]　　</span>
+				<input name="title" value="%%%%subevent:title%%%%" size="80" type="text" class="titlebox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">
+				</div>
+				</div>
+				
+				<table cellspacing="0" cellpadding="3" id="subenqTable">
+					<tr style="display: none; visibility: hidden;" id="lhissu">
+						<th>[回答制御]</th>
+						<td>
+							<input name="hissu" value="0" type="radio" id="radio"%%%%subevent_hissu:0%%%%>
+							<label for="radio">任意 </label>　　 
+							<input name="hissu" value="1" type="radio" id="radio2"%%%%subevent_hissu:1%%%%>
+							<label for="radio2">必須 </label>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							[フォーム形式]
+						</th>
+						<td>
+							<table>
+								<tr>
+									<td>
+										<select name="typeA" id="typeA" onchange="onSelect(this)">
+											%%%%subevent_typeA%%%%
+										</select>
+									</td>
+									<td>
+										<div style="visibility: hidden; display: none;" id="ltypeM">
+										<select name="typeM">
+											%%%%subevent_typeM%%%%
+										</select>
+										</div>
+									</td>
+									<td>
+										<div style="visibility: visible;" id="lfel">
+										[1行に並べる選択肢数] 
+										<input name="fel" style="ime-mode:disabled;" value="%%%%subevent:fel%%%%" size="2" type="text" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">
+										%%%%error:fel%%%%	
+										<br><span style="font-size:0.9em;">新規作成またはフォーム再生成時のみ有効</span></div>
+									</td>
+									<td>
+										<input name="main" value="フォーム再作成" type="submit" id="reform" onClick="postconf3();return false;" class="white button"> 
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;" id="lchoice">
+						<th>
+							[選択肢]
+						</th>
+						<td>
+							<input name="choice" value="%%%%subevent:choice%%%%" size="90" type="text" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">
+							<br><span style="font-size:0.9em;">-&gt; 単数複数選択及びマトリクスの場合のみ <strong>※カンマ区切りで入力</strong></span>%%%%error:choice%%%%
+						</td>
+					</tr>
+
+					<tr style="display: none; visibility: hidden;" id="lrandom">
+						<th>
+						</th>
+						<td valign="top" >
+							<span style="font-size:0.9em;"><a href="javaScript:exMenu('randomMenu')">[選択肢のランダム表示設定]</a></span>%%%%money_mark%%%%
+							<div id="randomMenu" style="display:none;%%%%data:randomize_style%%%%">
+							<input name="randomize" value="%%%%subevent:randomize%%%%" size="90" type="text" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'" %%%%OPTION_ENQ_RANDOMIZE%%%%>
+							<br><span style="font-size:0.9em;">※開始番号-終了番号,開始番号2-終了番号2,…のフォーマットで記述(番号は0から数える) %%%%error:randomize%%%%
+							</span></div>
+						</td>
+					</tr>
+					<tr style="display: none; visibility: hidden;" id="lother">
+						<th>
+							<span id="ltexthidden1">[記入回答欄]</span>
+						</th>
+						<td>
+							<table width="480" border="0" cellpadding="0" cellspacing="1">
+								<tr>
+									<td width="130"><span id="ltexthidden2">
+										<input name="other" value="0" onclick="onOther()" type="radio" id="03"%%%%subevent_other:0%%%%>
+										<label for="03">不要 </label>　 
+										<input name="other" value="1" onclick="onOther()" type="radio" id="04"%%%%subevent_other:1%%%%>
+										<label for="04">設置 </label></span>
+									</td>
+									<td width="347" id="lsize" style="display: none; visibility: hidden;">
+										<div id="lwordlimit" style="display: none; visibility: hidden; margin-bottom:10px;" >
+											[文字数カウント]</br>
+											　最大文字数
+											<input style="ime-mode:disabled;" name="word_limit" value="%%%%subevent:word_limit%%%%" size="5" type="text" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">%%%%error:word_limit%%%%
+										</div>
+										<div>
+											[入力欄サイズ]</br>
+											　横幅 
+											<input style="ime-mode:disabled;" name="width" value="%%%%subevent:width%%%%" size="5" type="text" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">%%%%error:width%%%%
+											　 行数 
+											<input style="ime-mode:disabled;" name="rows" value="%%%%subevent:rows%%%%" size="5" type="text" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">%%%%error:rows%%%%
+											<br><font size="1" color="#666666">-> テキスト回答,記入回答欄,数値回答のフォームサイズ<br>-> 行数1:テキストボックス,行数2以上:テキストエリア</font>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<table cellspacing="0" cellpadding="3" width="100%">
+					<tr style="display: none; visibility: hidden;" id="lhtml2">
+						<td bgcolor="#f2f8ff">
+							<div id="tabs">
+								<ul>
+									<li><a href="#tabs-1">[メインhtml]</a></li>
+									<!-- <li><a href="#tabs-2">[簡易プレビュー]</a></li> -->
+								</ul>
+								<div id="tabs-1" style="width:680px">
+									<textarea id="html2textarea" name="html2" cols="80" rows="20" class="txtbox" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">%%%%subevent:html2%%%%</textarea>
+								</div>
+								<div style="padding:0px 0px 0px 17px;">
+									置き換え文字挿入
+									<select id="wordList" onchange="insertWord()">
+										%%%%replace_word%%%%
+									</select>
+									<font style="font-weight:normal;">(カーソル位置に選択した置き換え文字が挿入されます)</font>
+								</div>
+								<!--
+								<div id="tabs-2" style="width:680px">
+									<iframe frameborder=0 src="%%%%data:preview%%%%" id="preview"></iframe><br>
+								</div>
+								-->
+							</div>
+						</td>
+					</tr>
+					<tr id="lhtml1" style="display: none; visibility: hidden;">
+						<td bgcolor="#f2f8ff">
+							<div style="padding:3px 5px;">
+							[ヘッダhtml]</div>
+							<div style="padding:2px 5px;">
+							<textarea name="html1" cols="80" rows="6" class="txtbox" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">
+							</textarea></div>
+						</td>
+					</tr>
+				</table>
+				<div style="padding:3px 5px;" id="lext">
+				<a href="javaScript:exMenu('extMenu')">[ext](style,javascript等の設定)</a></div>
+				<div id="extMenu" style="display:none;padding:2px 5px;">
+				<textarea id="extText" name="ext" cols="80" rows="2" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">%%%%subevent:ext%%%%</textarea></div>
+			
+				<div id="lchtable">
+						<div style="padding:3px 5px;" id="lext">
+						<a href="javaScript:exMenu('extMenu1')">[回答変換テーブル]</a></div>
+
+						<div id="extMenu1" style="display:none;padding:2px 5px;">
+							<input name="chtable" value="%%%%subevent:chtable%%%%" size="90" type="text" class="txtbox" onFocus="this.style.background='#f5faff'" onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background='#ffffff'" onBlur="this.style.background='#ffffff'">
+							<br><span style="font-size:10px;">-&gt; 入力の際は選択肢と同数としてください<strong>※カンマ区切りで入力</strong></span>%%%%error:chtable%%%%
+						</div>
+					</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<div align="center">
+					<input name="evid" value="%%%%subevent:evid%%%%" type="hidden">
+					<input name="seid" value="%%%%subevent:seid%%%%" type="hidden">
+					<input name="main" value="　更　新　" type="submit" class="button white">
+					<span style="float:right"">
+						<input type="button" onclick="return postconf2();" id="delete_link" class="button gray" value="この質問を削除">
+					</span>
+				</div>
+			</td>
+			<td valign="top" nowrap>
+				<div style="text-align:center;background:rgb(187, 187, 187);border-radius:0 5px 0 0">
+				<a href="javaScript:exMenu('listMenu')" title="質問一覧を開く・閉じる" style="display:block;padding:5px;font-size:12px;">質問一覧</a></div>
+				<div id="listMenu" style="border: 1px solid rgb(187, 187, 187); padding: 0; overflow-y: auto; overflow-x:hidden;font-size: 80%; width: 280px; height: 670px;border-radius:0 0 5px 0">
+				<ol type="1">
+%%%%SUBEVENT_LIST%%%%
+				</ol>
+				</div>
+			</td>
+		</tr>
+	</table>
+</form>
+
+<!-- first overlay. id attribute matches our selector -->
+<div class="simple_overlay" id="mies1">
+	<div class="details">
+		<h3>ショートカットキー</h3>
+		<p>[Alt + J]　次の質問へ</p>
+		<p>[Alt + K]　前の質問へ</p>
+		<p>[Alt + Q]　更新</p>
+		<p>[H]　メインHTMLにフォーカスをあわせる</p>
+	</div>
+
+</div>
+
+</body>
+</html>

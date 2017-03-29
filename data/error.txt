@@ -1,0 +1,13 @@
+﻿IN_INDEX = <b>ERROR_1.5.8</b>
+IN_PREV = ERROR_1.5.7 プレビュー時エラーが発生しました。
+HISSU_NOTHING = [ %%%%title%%%% ] ####enq_error_necessary####
+OTHER_NOTHING = [ %%%%title%%%% ] の記入欄も入力ください。
+CHOICE_OVER = [ %%%%title%%%% ] ####enq_error_over####
+NO_NUMBER = [ %%%%title%%%% ] は半角数値入力項目です。
+CHOICE_NEED = [ %%%%title%%%% ] はNNNNつ選択ください。
+COND5 = cond5エラー
+RANDOMIZE_INVALID = 不正なランダマイズフォーマット
+RANDOMIZE_REPEAT = ランダマイズの指定範囲が重複しています。
+RANDOMIZE_STEP_PAGE = ランダマイズの指定範囲がページをまたいでいます。
+RANDOMIZE_REVERSE = ランダマイズ終了位置が開始位置より手前です。
+AUTH_ERROR = IDまたはパスワードが間違っています。

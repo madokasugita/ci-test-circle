@@ -1,0 +1,100 @@
+a:14:{s:11:"MSG_TIMEOUT";s:72:"タイムアウトしました。再度ログインしてください。";s:10:"MSG_LOGOUT";s:30:"ログアウトしました。";s:17:"MSG_ERROR_LOGIN_1";s:32:"IDを入力してください。";s:17:"MSG_ERROR_LOGIN_2";s:41:"入力したIDが間違っています。";s:17:"MSG_ERROR_LOGIN_3";s:45:"パスワードを入力してください。";s:17:"MSG_ERROR_LOGIN_4";s:105:"入力したパスワードが間違っています。<br />半角英数字で入力してください。";s:17:"MSG_ERROR_LOGIN_5";s:54:"入力したパスワードが間違っています。";s:15:"ADMIN_ERROR_201";s:11:"ERROR 2.0.1";s:15:"ADMIN_ERROR_202";s:11:"ERROR 2.0.2";s:15:"ADMIN_ERROR_203";s:11:"ERROR 2.0.3";s:15:"ADMIN_ERROR_204";s:11:"ERROR 2.0.4";s:15:"ADMIN_ERROR_901";s:66:"ERROR 9.0.1 データベースへの接続を失敗しました。";s:10:"HTML_ERROR";s:1273:"<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>システムエラー発生のお知らせ</title>
+<link rel="stylesheet" type="text/css" href="../src/research.css">
+</head>
+<body>
+<div align="center">
+
+<div id="picture"></div>
+
+<table id="table-01">
+<tr>
+  <td>システムエラー発生のお知らせ</td>
+</tr>
+</table>
+<br>
+<br>
+
+<!--メッセージ表示部分-->
+<table id="table-02">
+<tr>
+  <td>
+システムにおいてエラーが発生いたしました。<br><br>
+誠に申し訳ありませんが、再度アンケートの開始画面に<br>
+アクセスしなおしていただきますようお願いいたします。<br><br>
+何度かお確かめいただいても同様の現象がでるようでしたら<br>
+アンケートの管理者までお問い合わせください。<br><br>
+ブラウザ右上の「×（閉じる）」ボタンをクリックして、画面を閉じてください。
+  </td>
+</tr>
+</table>
+<br>
+<br>
+
+<table id="table-03">
+<tr>
+  <td><br></td>
+</tr>
+</table>
+
+<table id="table-04">
+<tr>
+  <td>Powered by <a href="http://www.cbase.co.jp/?Rese" target="_blank">Cbase Corporation.</a></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>";s:16:"HTML_TEST_THANKS";s:1234:"<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>アンケートの動作確認モード終了のお知らせ</title>
+<link rel="stylesheet" type="text/css" href="../src/research.css">
+</head>
+<body>
+<div align="center">
+
+<div id="picture"></div>
+
+<table id="table-01">
+<tr>
+  <td>アンケートの動作確認モード終了のお知らせ</td>
+</tr>
+</table>
+<br>
+<br>
+
+<!--メッセージ表示部分-->
+<table id="table-02">
+<tr>
+  <td>
+アンケートの動作確認モードが終了いたしました。<br>
+設定されたアンケートの最後の設問までご回答いただいております。<br><br>
+尚このモードでご回答いただいたデータは、<br>
+回答データとして保存されませんのでご安心ください。<br><br>
+ブラウザ右上の「×（閉じる）」ボタンをクリックして、画面を閉じてください。
+  </td>
+</tr>
+</table>
+<br>
+<br>
+
+<table id="table-03">
+<tr>
+  <td><br></td>
+</tr>
+</table>
+
+<table id="table-04">
+<tr>
+  <td>Powered by <a href="http://www.cbase.co.jp/?Rese" target="_blank">Cbase Corporation.</a></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>";}

@@ -1,0 +1,12 @@
+$(function()
+{
+	$('th').click(
+		function()
+		{
+			if($(this).find(".sort-descend").attr('href'))
+				location.href=$(this).find(".sort-descend").attr('href');
+			if($(this).find(".sort-ascend").attr('href'))
+				location.href=$(this).find(".sort-ascend").attr('href');
+		}
+	);
+});

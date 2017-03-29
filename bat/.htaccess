@@ -1,0 +1,8 @@
+SetEnvIf X-Forwarded-For "^153\.142\.24\.237$" cbase
+SetEnvIf X-Forwarded-For "^(49\.13[2-5]\.|106\.190\.)" uqwimax
+
+order deny,allow
+deny from all
+allow from 153.142.24.237
+allow from env=cbase
+allow from env=uqwimax

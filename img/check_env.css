@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summarhtml, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font-style:normal; font-size: 100%; font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; vertical-align: baseline;}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display: block;}
+html{ overflow-y: scroll;}
+img { vertical-align: bottom;}
+blockquote, q { quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none;}
+input, textarea, option, select, button { margin: 0; padding: 0; font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;}
+ol, ul{ list-style: none;}
+table{ border-collapse: collapse; border-spacing:0;}
+caption, th{ text-align: left;}
+a:focus { outline:none;}
+.clearfix:after { content: "."; display: block; clear: both; height: 0; visibility: hidden;}
+.clearfix { min-height: 1px;}
+* html .clearfix {
+    height: 1px;
+    /*¥*//*/
+    height: auto;
+    overflow: hidden;
+    /**/
+}
+.clear{ clear: both;}
+
+body {
+	line-height: 2;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: none;
+}
+
+a,
+a:link,
+a:active {
+	color: inherit;
+	-webkit-transition: 0.35s; -moz-transition: 0.35s; -o-transition: 0.35s; -ms-transition: 0.35s; transition: 0.35s;
+}
+a:hover,
+button:hover {
+	color: #146cba;
+	text-decoration: none;
+}
+* {
+	word-wrap: break-word;
+	/*word-break: break-all;*/
+	word-break: normal;
+}
+
+/* ---------------------------------------------------------
+header
+--------------------------------------------------------- */
+
+header {
+	background-color: #146cba;
+	padding: 10px 0;
+	margin: 0 auto;
+	height: 40px;
+	}
+
+h1 { 
+	width: 960px;
+	margin: 0 auto;}	
+
+/* ---------------------------------------------------------
+環境チェック
+--------------------------------------------------------- */
+	
+section#check { 
+	padding: 50px 0 80px;
+	} 	
+section#check table {
+	width: 960px;
+	margin: 0 auto;
+}
+section#check table tr {
+	border-bottom: #fff 3px solid;
+}
+section#check table td {
+		background-color: #efefef;
+		padding: 10px 0 10px 20px;
+}
+section#check table td.js {
+		background-color: #dfdfdf;
+		padding: 10px 0 10px 20px;
+}
+section#check table td.item {
+	width: 385px;
+	background: #efefef;
+	background-repeat: no-repeat;
+	background-position: right;
+	
+}
+section#check table td.item.js {
+	width: 385px;
+	background: #dfdfdf;
+	background-repeat: no-repeat;
+	background-position: right;
+	
+}
+section#check table td.result {
+	width: 120px;
+	background-repeat: no-repeat;
+	background-position: right;
+	text-align:center;
+	padding-right: 35px;
+}
+section#check table td.result.js {
+	width: 120px;
+	background-repeat: no-repeat;
+	background-position: right;
+	text-align:center;
+	padding-right: 35px;
+}
+
+h2 { 
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 50px;
+	}	
+
+/* ---------------------------------------------------------
+サポート情報
+--------------------------------------------------------- */	
+section#support {
+	 margin-bottom: 80px;
+}
+section#support table {
+	width: 960px;
+	margin: 0 auto;
+	line-height: 1.5;
+	font-size: 14px;
+	border-spacing : 3px;
+    border-collapse : separate ;
+}
+
+section#support table th {
+	background-color: #dfdfdf;
+	text-align: center;
+	padding: 5px 0;
+	font-size: 16px;
+}
+section#support table td.item {
+	background-color: #efefef;
+	padding: 15px;
+	width: 120px;
+	text-align: center;
+	vertical-align: middle;
+}
+section#support table td.detail {
+	padding: 15px 0 15px 15px;
+	border: #838383 1px solid; 
+}
