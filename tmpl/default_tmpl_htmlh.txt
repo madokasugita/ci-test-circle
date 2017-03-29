@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>CbaseASPアンケート</title>
+<style>
+<!--
+body,tr,textarea {font-size:12px;}
+img {border:0;}
+a:link {color:#ff6600;}
+a:visited {color:#ff6600;}
+a:active {color:#ff6600;}
+a:hover {color:#ff6600;}
+.alert {color:#ff6600;}
+
+.tr1 {
+font-size:15px;
+color:#ffffff;
+background:#555555;
+}
+.tr2 {
+color:#000000;
+background:#999999;
+font-weight:bold;
+}
+.tr3 {
+color:#000000;
+background:#e6e6e6;
+height:25px;
+}
+.tr4 {
+color:#000000;
+background:#ffffff;
+height:25px;
+}
+.line {background:#888888;}
+.tdline {
+border-color:#888888;
+border-style:solid;
+border-width:0px 1px 1px 1px;
+color:#000000;
+background:#ffffff;
+}
+.tdline2 {
+border-color:#888888;
+border-style:solid;
+border-width:0px 1px 1px 0px;
+color:#000000;
+background:#ffffff;
+}
+-->
+</style>
+</head>
+<body>
+<center>
+<table width="600" border="0" cellpadding="1" cellspacing="1">
+<tr>
+  <td> </td>
+  <td> </td>
+</tr>
+</table>
+<table width="600" border="0" cellpadding="8" cellspacing="1">
+<tr align="right"> 
+  <td align="right" bgcolor="#f2f2f2"> 
+    <div align="left"><font size="2">
+    <img src="https://www.cbase.co.jp/img/cbase.gif"><br>
+    アンケートサイトにようこそ。<br>
+    アンケート名<br>
+    </font></div>
+  </td>
+</tr>
+</table>
+<br>

@@ -1,0 +1,6 @@
+<input type="submit" name="main" value="送信">
+</div>
+</td>
+</tr>
+</table>
+<br>

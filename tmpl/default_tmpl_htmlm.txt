@@ -1,0 +1,7 @@
+</table>
+</td>
+</tr>
+</table>
+<br>
+<br>
+<input type="submit" name="pb" value="戻る">　　

@@ -1,7 +1,12 @@
 machine:
   timezone: Asia/Tokyo
   php:
-    version: 5.6.17
+    version: 7.1.0
 test:
   pre:
-    - chmod -x ./check_syntax.sh
+    - echo "-----start test-----"
+  override:
+    - chmod a+x ./check_syntax.sh
+    - ./check_syntax.sh
+  post:
+    - echo "-----end test-----"

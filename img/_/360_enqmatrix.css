@@ -1,0 +1,234 @@
+@charset "UTF-8";
+/* 列の幅を固定 (ヘッダとボディ両方に適用) */
+.matrix_col_width_0
+{
+	width: 100px;
+}
+.matrix_col_width_1
+{
+	width: 85px;
+}
+
+.matrix_col_width_2
+{
+	width: 40px;
+}
+.matrix_col_width_3
+{
+	/* width: 200px; */
+}
+.matrix_col_width_4
+{
+	/* width: 40px; */
+}
+
+
+
+
+
+/* 回答入力の列の幅 */
+.matrix_col_width_form
+{
+	width: 108px;
+	text-align:center;
+}
+
+/* 回答入力の列の幅 */
+.sheet3 .matrix_col_width_form
+{
+	width: 40px;
+	text-align:center;
+}
+
+/************************************************************************************************/
+/* ヘッダのスタイル */
+.matrix_header_table
+{
+	width: 950px;
+	margin:0px auto;
+	border-collapse:collapse;
+	background-color:#ffffff;
+	border:solid 1px #3D85C6;
+}
+ 
+.matrix_header_table td{
+	color:#000000;
+	font-size:13px;
+	background-color:#CFE2F3;
+	border:solid 1px #3D85C6;
+	padding:5px;
+        font-weight:bold;
+}
+.matrix_header_scroll_margin{
+	width:7px;
+	padding:0;
+}
+/* matrix_header_col_0 ヘッダ列ごとのスタイル */
+
+
+.matrix_header_col_0{
+
+}
+
+/* 回答入力の列の幅 */
+.sheet1 matrix_col_width_3
+{
+	/* width: 180px; */
+}
+	
+
+
+
+
+
+
+
+/************************************************************************************************/
+/* ボディのスタイル */
+
+
+/* スクロール用のdivタグ */
+.matrix_div
+{
+	margin:0px auto;
+	width:950px;
+	height:600px;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
+.matrix_body_table{
+	width: 950px;
+	margin:0px auto;
+	border-collapse:collapse;
+	background-color:#ffffff;
+	border:solid 1px #3D85C6;
+	text-align:left;
+
+}
+.matrix_body_table td{
+	border:solid 1px #3D85C6;
+	font-size:13px;
+	padding:5px;
+	text-valign:top;
+	line-height:1.3em;
+}
+/* シート1用 */
+.sheet1 .matrix_body_table{
+	width: 932px;
+	margin:0px auto;
+	border-collapse:collapse;
+	background-color:#ffffff;
+	border:solid 1px #3D85C6;
+	text-align:left;
+}
+
+
+
+
+
+
+
+
+
+/* テーブルボディ部の列ごとのスタイル */
+.matrix_body_col_0
+{
+	text-align:center;
+	word-break:break-all;
+}
+.matrix_body_col_1{
+	text-align:center;
+}
+.matrix_body_col_2{
+	text-align:center;
+        background-color:#EEEEEE;
+}
+
+/* テーブルボディ部の行ごとのスタイル */
+.matrix_body_row_0 td{
+	 border-top:hidden;
+}
+
+.matrix_body_table .td1{
+background-color:#f5f5f5;
+color:#000000;
+font-size:14px;
+font-weight:bold;
+}
+
+.matrix_body_table .td2{
+background-color:#cdcdcd;
+color:#3D85C6;
+text-align:center;
+}
+
+.matrix_body_table .td3{
+background-color:#99ccff;
+color:#3D85C6;
+
+}
+
+
+.matrix_body_table .td5{
+background-color:#99ccff;
+color:#000000;
+text-align:left;
+}
+
+
+.cell1_0,.cell7_0{
+background-color:#a1d8e2;
+}
+
+.cell13_0,.cell19_0{
+background-color:#a3d6cc;
+}
+
+.cell25_0{
+background-color:#fff3b8;
+}
+
+.cat1color0{background-color:#a1d8e2}
+.cat1color1{background-color:#a3d6cc}
+.cat1color2{background-color:#fff3b8}
+.cat1color3{background-color:#a1d8e2}
+.cat1color4{background-color:#a3d6cc}
+.cat1color5{background-color:#fff3b8}
+.cat1color6{background-color:#a1d8e2}
+.cat1color7{background-color:#a3d6cc}
+.cat1color8{background-color:#fff3b8}
+.cat1color9{background-color:#a1d8e2}
+.cat1color10{background-color:#a3d6cc}
+.cat1color11{background-color:#fff3b8}
+.cat1color12{background-color:#a1d8e2}
+.cat1color13{background-color:#a3d6cc}
+.cat1color14{background-color:#fff3b8}
+.cat1color15{background-color:#a1d8e2}
+
+.cat2color0{background-color:#f0efe7}
+.cat2color1{background-color:#d8d7cf}
+.cat2color2{background-color:#f0efe7}
+.cat2color3{background-color:#d8d7cf}
+.cat2color4{background-color:#f0efe7}
+.cat2color5{background-color:#d8d7cf}
+.cat2color6{background-color:#f0efe7}
+.cat2color7{background-color:#d8d7cf}
+.cat2color8{background-color:#f0efe7}
+.cat2color9{background-color:#d8d7cf}
+.cat2color10{background-color:#f0efe7}
+.cat2color11{background-color:#d8d7cf}
+.cat2color12{background-color:#f0efe7}
+.cat2color13{background-color:#d8d7cf}
+.cat2color14{background-color:#f0efe7}
+.cat2color15{background-color:#d8d7cf}
+.cat2color16{background-color:#f0efe7}
+.cat2color17{background-color:#d8d7cf}
+.cat2color18{background-color:#f0efe7}
+.cat2color19{background-color:#d8d7cf}
+.cat2color20{background-color:#f0efe7}
+.cat2color21{background-color:#d8d7cf}
+.cat2color22{background-color:#f0efe7}
+.cat2color23{background-color:#d8d7cf}
+.cat2color24{background-color:#f0efe7}
+.cat2color25{background-color:#d8d7cf}

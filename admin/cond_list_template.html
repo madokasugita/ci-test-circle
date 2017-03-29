@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>enq_list.php</title>
+<script type="text/javascript" src="%%%%img_path%%%%floatinghelp.js"></script>
+<script type="text/javascript" src="%%%%img_path%%%%research_common.js"></script>
+<script>imgPreLoad(new Array("%%%%img_path%%%%box_top.gif","%%%%img_path%%%%box_tale.gif","%%%%img_path%%%%box_bottom.gif","%%%%img_path%%%%box_bg.gif"));</script>
+<style type="text/css">
+<!--
+body {margin:10px; padding:0; color:#666666;}
+img {border:0; }
+strong {color:#00cccc; }
+input,select {font-size:0.9em; text-align:center;}
+td {font-size:12px; }
+tr:hover {background:#fff5f5; }
+input,select {font-size:1.0em; }
+.hissu {color:#ff0000; text-align:center; }
+.title {color:#888888; font-size:10px; }
+.tr1 td {color:#ffffff; font-size:10px; background:#3366aa; text-align:center; }
+.line {background:#ccddee; }
+.odd {background:#ffffff; }
+.even {background:#f5faff; }
+.helpbox-text {
+background:url(%%%%img_path%%%%box_bg.gif) repeat-y;
+padding:0 8px 3px 30px;
+color:#880000;
+font-size:11px;
+line-height:1.4em;
+}
+.helpbox-text strong {color:#cc0000; font-size:12px;}
+.helpbox-tale {display:absolute; margin:-5px 10px 0 -30px;}
+--></style>
+</head>
+<body>
+
+  <table border="0" cellspacing="5" cellpadding="0">
+    <tr> 
+      <td valign="top">
+
+<form action="set_cond.php?%%%%SID%%%%" method="post">
+        <table border=0 cellspacing=1 cellpadding=5 class="line">
+          <tr class="tr1"> 
+            <td>ページ</td>
+            <td width="400">質問文</td>
+            <td nowrap>質問ID</td>
+            <td>必須</td>
+            <td>質問<br>
+              設定</td>
+            <td>質問<br>
+              表示条件<br>
+<span onMouseOver="showHelp('<img src=%%%%img_path%%%%box_top.gif><div class=helpbox-text><img src=%%%%img_path%%%%box_tale.gif class=helpbox-tale><strong>設定について</strong><br><HR size=1 color=#660066 style=border-style:dotted><b>設問に対する設問表示条件設定(質問表示条件)</b>をまとめて行う場合には、該当する質問にチェックを入れ、このボタンをクリックしてください。<br><br><font color=#ff6600>※但し、既に「<img src=%%%%img_path%%%%check_g.gif>」があり、設定されている場合に一括設定を行うと、既存の設定を上書きしますのでご注意ください。</font></div><img src=%%%%img_path%%%%box_bottom.gif>',this,event)" >
+<input type="image" name="mode:display:" src="%%%%img_path%%%%all_set1.gif" onmouseover="this.src='%%%%img_path%%%%all_set1_over.gif'" onmouseout="this.src='%%%%img_path%%%%all_set1.gif'" />
+</span> 
+            </td>
+            <td>自問<br>
+              ERROR<br>
+<span onMouseOver="showHelp('<img src=%%%%img_path%%%%box_top.gif><div class=helpbox-text><img src=%%%%img_path%%%%box_tale.gif class=helpbox-tale><strong>設定について</strong><br><HR size=1 color=#660066 style=border-style:dotted><b>自問設問の回答のみで判断する入力エラー発生条件設定(論理チェック、入力制御)</b>をまとめて行う場合には、該当する質問にチェックを入れ、このボタンをクリックしてください。<br><br><font color=#ff6600>※但し、既に「<img src=%%%%img_path%%%%check_g.gif>」があり、設定されている場合に一括設定を行うと、既存の設定を上書きしますのでご注意ください。</font></div><img src=%%%%img_path%%%%box_bottom.gif>',this,event)" >
+<input type="image" name="mode:self:"  src="%%%%img_path%%%%all_set1.gif" onmouseover="this.src='%%%%img_path%%%%all_set1_over.gif'" onmouseout="this.src='%%%%img_path%%%%all_set1.gif'" /></span>
+</td>
+
+            <td>連携<br>
+              ERROR<br>
+<span onMouseOver="showHelp('<img src=%%%%img_path%%%%box_top.gif><div class=helpbox-text><img src=%%%%img_path%%%%box_tale.gif class=helpbox-tale><strong>設定について</strong><br><HR size=1 color=#660066 style=border-style:dotted><b>設問の回答と関連設問の回答を合わせて入力エラーの条件とする設定(回答の排他制御、他)</b>をまとめて行う場合には、該当する質問にチェックを入れ、このボタンをクリックしてください。<br><br><font color=#ff6600>※但し、既に「<img src=%%%%img_path%%%%check_g.gif>」があり、設定されている場合に一括設定を行うと、既存の設定を上書きしますのでご注意ください。</font></div><img src=%%%%img_path%%%%box_bottom.gif>',this,event)" > 
+              <input type="image" name="mode:relation:" src="%%%%img_path%%%%all_set1.gif" onmouseover="this.src='%%%%img_path%%%%all_set1_over.gif'" onmouseout="this.src='%%%%img_path%%%%all_set1.gif'" /></span>
+            </td>
+            <td>選択肢<br>
+              絞込<br> </td>
+          </tr>
+	%%%%SUBEVENT_LIST%%%%
+          <tr class="tr1"> 
+            <td>ページ</td>
+            <td>質問文</td>
+            <td>質問ID</td>
+            <td>必須</td>
+            <td>質問<br>
+              設定</td>
+            <td>質問<br>
+              表示条件<br> </td>
+            <td>自問<br>
+              ERROR<br> </td>
+            <td>連携<br>
+              ERROR</td>
+            <td>選択肢<br>
+              絞込<br> </td>
+          </tr>
+          <input type="hidden" name="evid" value="%%%%evid%%%%">
+          <input type="hidden" name="rid" value="%%%%rid%%%%">
+        </table>
+</form>
+      </td>
+      <td width="200" valign="top"> <table width="200" border=0 cellpadding=5 cellspacing=1 class="line">
+          <tr class="odd"> 
+            <td align=left> <table width="190" border="0" cellpadding="2" cellspacing="2">
+                <tr> 
+                  <td><div align="left"> 
+                      <p> 
+                        <form action="enq_event.php?%%%%SID%%%%&evid=%%%%evid%%%%" method="post" style="display:inline"><input type="submit" value="基本設定画面へ"></form>
+                        <br>
+                        <form action="enq_list.php?%%%%SID%%%%&evid=%%%%evid%%%%" method="post" style="display:inline"><input type="submit" value="ページ設定一覧画面へ"></form>
+                      </p>
+                    </div></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+<br>
+<table width="200" border=0 cellpadding=5 cellspacing=1 class="line">
+          <tr class="odd"> 
+            <td align=left> <table width="190" border="0" cellpadding="2" cellspacing="2">
+                <tr> 
+                  <td><div align="right"> 
+                      <p> 
+                        <a href="%%%%test_url%%%%" target="_blank">動作確認</a>
+                        /
+                        <a href="%%%%prev_url%%%%" target="_blank">プレビュー</a>
+                      </p>
+                    </div></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+
+        </td>
+    </tr>
+  </table>
+  <br>
+</form>
+</body>
+</html>
