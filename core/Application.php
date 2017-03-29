@@ -13,6 +13,10 @@ abstract class Application
     protected $session;
 
 
+    public function test($debug = false)
+    {
+        $a = 'a';
+    }
     /**
      * コンストラクタ
      *

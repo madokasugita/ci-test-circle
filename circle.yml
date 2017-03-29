@@ -10,3 +10,4 @@ test:
     - ./check_syntax.sh
   post:
     - echo "-----end test-----"
+    
