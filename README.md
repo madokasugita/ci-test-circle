@@ -1,30 +1,30 @@
 参考資料
 http://qiita.com/yuji0602/items/28b0c2363bae8fce055a
 
-#P環境構築
+# P環境構築
 PHPMDとPHPCSを使ってPHPの静的解析を行う
 
-##PHPMDとは
+## PHPMDとは
 phpmdはPHP Mess Ditectorの略で、PHPコードの潜在的なバグになりそうな箇所や実装上の問題を検出してくれるツールである。例えば未使用の変数の指摘、多数のpublicメソッドのある巨大クラスの検出、一文字変数等もこのツールで検出可能だ。  
 引用元:http://www.ryuzee.com/contents/blog/3479
 
-##PHPCSとは
+## PHPCSとは
 PHP_CodeSnifferは2つのPHPスクリプトのセットです。 定義されたコーディング標準の違反を検出するPHP、JavaScript、CSSファイルをトークン化するphpcsスクリプト、コーディング標準違反を自動的に修正する2番目のphpcbfスクリプト PHP_CodeSnifferは、コードをきれいにして一貫性を保つための重要な開発ツールです。(翻訳)  
 引用元:https://github.com/squizlabs/PHP_CodeSniffer
 
-##インストール方法
-###composerのインストールの確認
+## インストール方法
+### composerのインストールの確認
 ```ターミナル
 $ composer -v
  ```
-###composerのインストール
+### composerのインストール
 ```ターミナル
 $ cd ~/src
 $ curl -sS https://getcomposer.org/installer | php
 $ sudo mv composer.phar /usr/local/bin/composer
  ```
  
-###composerのインストールの確認
+### composerのインストールの確認
 ```ターミナル
 $ composer -v
    ______
@@ -36,7 +36,7 @@ $ composer -v
 Composer version 1.3.1 2017-01-07 18:08:51
  ```
  
-###PHPMDとPHPCSのインストール
+### PHPMDとPHPCSのインストール
 ```ターミナル
 $ git clone https://github.com/madokasugita/ci-test-circle.git
 $ cd ci-test-circle
