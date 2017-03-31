@@ -42,8 +42,9 @@ $ git clone https://github.com/madokasugita/ci-test-circle.git
 $ cd ci-test-circle
 $ composer install
 $ cp -R vendor/wimg/php-compatibility vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/PHPCompatibility
+```
 
-###ローカルでのコードのチェック
+### ローカルでのコードのチェック
  ```ターミナル
  [vagrant@cbase-local ci-test-circle]$ ./check_syntax_local.sh /work/www/src/test/test
  ********************
