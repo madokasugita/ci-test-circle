@@ -1,7 +1,7 @@
 参考資料
 http://qiita.com/yuji0602/items/28b0c2363bae8fce055a
 
-# P環境構築
+# 環境構築
 PHPMDとPHPCSを使ってPHPの静的解析を行う
 
 ## PHPMDとは
